@@ -1,5 +1,14 @@
 # Breaking Changes
 
+## November 24th, 2020
+
+If you've created a private server with this template before November 24th, 2020, it will not show a class tree when you press T.
+
+Open server.js, search for `position: positionInfo,`, and below it, add the line:
+```
+upgrades: e.upgrades.map(r => ({ tier: r.tier, index: r.index })),
+```
+
 ## June 22nd, 2019
 
 If you've created a private server with this template before April 10th, 2019, it will not support the new protocol which is now standardized!
