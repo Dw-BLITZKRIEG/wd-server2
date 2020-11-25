@@ -9,6 +9,43 @@ Open server.js, search for `position: positionInfo,`, and below it, add the line
 upgrades: e.upgrades.map(r => ({ tier: r.tier, index: r.index })),
 ```
 
+Also, find the following in your server.js:
+```
+        if (set.UPGRADES_TIER_1 != null) { 
+            set.UPGRADES_TIER_1.forEach((e) => {
+                this.upgrades.push({ class: e, level: c.TIER_1, index: e.index,});
+            });
+        }
+        if (set.UPGRADES_TIER_2 != null) { 
+            set.UPGRADES_TIER_2.forEach((e) => {
+                this.upgrades.push({ class: e, level: c.TIER_2, index: e.index,});
+            });
+        }
+        if (set.UPGRADES_TIER_3 != null) { 
+            set.UPGRADES_TIER_3.forEach((e) => {
+                this.upgrades.push({ class: e, level: c.TIER_3, index: e.index,});
+            });
+        }
+```
+and replace it with
+```
+        if (set.UPGRADES_TIER_1 != null) { 
+            set.UPGRADES_TIER_1.forEach((e) => {
+                this.upgrades.push({ class: e, tier: 1, level: c.TIER_1, index: e.index });
+            });
+        }
+        if (set.UPGRADES_TIER_2 != null) { 
+            set.UPGRADES_TIER_2.forEach((e) => {
+                this.upgrades.push({ class: e, tier: 2, level: c.TIER_2, index: e.index });
+            });
+        }
+        if (set.UPGRADES_TIER_3 != null) { 
+            set.UPGRADES_TIER_3.forEach((e) => {
+                this.upgrades.push({ class: e, tier: 3, level: c.TIER_3, index: e.index });
+            });
+        }
+```
+
 ## June 22nd, 2019
 
 If you've created a private server with this template before April 10th, 2019, it will not support the new protocol which is now standardized!
