@@ -4606,7 +4606,7 @@ var maintainloop = (() => {
                 o.team = -100;
         }
     };
-    // The NPC function
+      // The NPC function
     let makenpcs = (() => {
         // Make base protectors if needed.
             /*let f = (loc, team) => { 
@@ -4617,7 +4617,7 @@ var maintainloop = (() => {
             };
             for (let i=1; i<5; i++) {
                 room['bas' + i].forEach((loc) => { f(loc, i); }); 
-            }*/
+          }*/    
         // Return the spawning function
         let bots = [];
         return () => {
@@ -4640,7 +4640,7 @@ var maintainloop = (() => {
                     let o = new Entity(room.random());
                     o.color = 17;
                     o.define(Class.bot);
-                    o.define(Class.elite_sprayer);
+                    o.define(Class.wierd_closer);
                     o.name += ran.chooseBotName();
                     o.refreshBodyAttributes();
                     o.color = 17;
