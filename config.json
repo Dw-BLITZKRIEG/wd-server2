@@ -13,14 +13,14 @@
   "verbose": true,
   "WIDTH": 1500,
   "HEIGHT": 1500,
-  "MODE": "tdm",
+  "MODE": "p",
   "RANDOM_COLORS": false,
   "BANNED_CHARACTER_REGEX": "/[\uFDFD\u200E\u0000]/gi", 
   "ROOM_SETUP": [
-    [ "roid", "norm", "norm", "roid" ],
-    [ "norm", "nest", "roid", "norm" ],
-    [ "norm", "roid", "nest", "norm" ],
-    [ "roid", "norm", "norm", "roid" ]
+    [ "bas1", "norm", "norm", "bas3" ],
+    [ "norm", "nest", "nest", "norm" ],
+    [ "norm", "nest", "nest", "norm" ],
+    [ "norm", "norm", "norm", "norm" ]
   ],
   "X_GRID": 4,
   "Y_GRID": 4,
