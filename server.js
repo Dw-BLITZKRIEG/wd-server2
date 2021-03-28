@@ -3601,7 +3601,7 @@ const sockets = (() => {
                   let all = {
                     walls: [],
                     players: {},
-                    minibosses: [],
+                    minibosses: [5],
                   }
                   let updateMaze = () => {
                     let walls = all.walls = []
@@ -4635,7 +4635,7 @@ var maintainloop = (() => {
             // Spawning
             spawnCrasher(census);
             spawnBosses(census);
-            /*/ Bots
+            
                 if (bots.length < c.BOTS) {
                     let o = new Entity(room.random());
                     o.color = 17;
@@ -4655,7 +4655,7 @@ var maintainloop = (() => {
                         o.skill.maintain();
                     }
                 });
-            */
+            
         };
     })();
     // The big food function
