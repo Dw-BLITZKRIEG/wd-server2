@@ -4642,7 +4642,12 @@ var maintainloop = (() => {
                     let o = new Entity(room.random());
                     o.color = 17;
                     o.define(Class.bot);
-                    o.define(Class.basic);
+                       let arrayOfClasses = [Class.spike, Class.stream, Class.overseer,
+                                        Class.machinegunner, Class.penta, Class.octo,
+                                        Class.hybrid, Class.anni, Class.destroy, Class.booster, ]                  
+                      let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
+                    o.define(newClass);
+                
                     o.name += ran.chooseBotName();
                     o.refreshBodyAttributes();
                     o.color = 17;
@@ -4650,7 +4655,7 @@ var maintainloop = (() => {
                 }
                 // Remove dead ones
                 bots = bots.filter(e => { return !e.isDead(); });
-                // Slowly upgrade them
+                // fast upgrade them
                 bots.forEach(o => {
                     if (o.skill.level < 45) {
                         o.skill.score += 35;
