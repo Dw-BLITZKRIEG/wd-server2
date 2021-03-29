@@ -18,8 +18,8 @@
   "BANNED_CHARACTER_REGEX": "/[\uFDFD\u200E\u0000]/gi", 
   "ROOM_SETUP": [
     [ "bas1", "norm", "norm", "bas3" ],
-    [ "norm", "nest", "norm", "norm" ],
-    [ "norm", "norm", "nest", "norm" ],
+    [ "norm", "nest", "nest", "norm" ],
+    [ "norm", "nest", "nest", "norm" ],
     [ "norm", "norm", "norm", "norm" ]
   ],
   "X_GRID": 4,
