@@ -1,8 +1,9 @@
 {
-  "name": "arras",
+  "name": "BLITZKRIEG´S ARRAS",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
+    
     "start": "node server"
   },
   "dependencies": {
