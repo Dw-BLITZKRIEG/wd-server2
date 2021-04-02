@@ -4613,8 +4613,8 @@ var maintainloop = (() => {
          //Make base protectors if needed.
             let f = (loc, team) => { 
                 let o = new Entity(loc);
-                    o.define(Class.tri);
-                    o.team = 1;
+                    o.define(Class.baseProtector);
+                    o.team = -team;
                     o.color = [10, 11, 12, 15][team-1];
             };
             for (let i=1; i<5; i++) {
@@ -4652,8 +4652,9 @@ var maintainloop = (() => {
                 
                     o.name += ran.chooseBotName();
                     o.refreshBodyAttributes();
-                  
+                                  
                     o.color = 17;
+                  
           
                     bots.push(o);
                     
