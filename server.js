@@ -2293,7 +2293,7 @@ class Entity {
             this.accel.y -= Math.min(this.y - this.realSize + 50, 0) * c.ROOM_BOUND_FORCE / roomSpeed;
             this.accel.y -= Math.max(this.y + this.realSize - room.height - 50, 0) * c.ROOM_BOUND_FORCE / roomSpeed;
         }
-        if (room.gameMode === 'tdm' && this.type !== 'food') { 
+        if (room.gameMode === 'd' && this.type !== 'food') { 
             let loc = { x: this.x, y: this.y, };
             if (
                 (this.team !== -1 && room.isIn('bas1', loc)) ||
