@@ -13,7 +13,7 @@
   "verbose": true,
   "WIDTH": 1500,
   "HEIGHT": 1500,
-  "MODE": "tdm",
+  "MODE": "m",
   "RANDOM_COLORS": false,
   "BANNED_CHARACTER_REGEX": "/[\uFDFD\u200E\u0000]/gi", 
   "ROOM_SETUP": [
