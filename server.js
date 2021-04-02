@@ -4613,8 +4613,8 @@ var maintainloop = (() => {
          //Make base protectors if needed.
             let f = (loc, team) => { 
                 let o = new Entity(loc);
-                    o.define(Class.baseProtector);
-                    o.team = -team;
+                    o.define(Class.twin_closer);
+                    o.team = 1;
                     o.color = [10, 11, 12, 15][team-1];
             };
             for (let i=1; i<5; i++) {
@@ -4637,6 +4637,7 @@ var maintainloop = (() => {
             // Spawning
             spawnCrasher(census);
             spawnBosses(census);
+            
             
                 if (bots.length < c.BOTS) {
                     let o = new Entity(room.random());
