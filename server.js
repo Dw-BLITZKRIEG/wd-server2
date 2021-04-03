@@ -4585,6 +4585,9 @@ var maintainloop = (() => {
                 let choice = [];
                 switch (ran.chooseChance(40, 1)) {
                     case 0: 
+                        choice = [[Class.elite_gunner], 2, 'a', 'nest'];
+                        break;
+                    case 0: 
                         choice = [[Class.elite_destroyer], 2, 'a', 'nest'];
                         break;
                     case 1: 
@@ -4644,8 +4647,8 @@ var maintainloop = (() => {
                     let o = new Entity(room.random());
                     o.color = 17;
                     o.define(Class.bot);
-                       let arrayOfClasses = [Class.spike, Class.stream, Class.overseer, Class.overlord, Class.weirdspike, Class.fallen_booster,
-                                        Class.machinegunner, Class.penta, Class.octo, Class.uh, Class.fallenoverlord,
+                       let arrayOfClasses = [Class.spike, Class.stream, Class.overseer, Class.overlord, Class.weirdspike, Class.fighter,
+                                        Class.machinegunner, Class.penta, Class.octo, Class.uh, Class.jr_closer,
                                         Class.hybrid, Class.anni, Class.destroy, Class.booster, Class.mega_anni, Class.ninja, ]                  
                       let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
                     o.define(newClass);
