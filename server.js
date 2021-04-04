@@ -4581,7 +4581,7 @@ var maintainloop = (() => {
             };
         })();
         return census => {
-            if (timer > 6000 && ran.dice(16000 - timer)) {
+            if (timer > 120 && ran.dice(120 - timer)) {
                 util.log('[SPAWN] Preparing to spawn...');
                 timer = 0;
                 let choice = [];
@@ -4593,6 +4593,13 @@ var maintainloop = (() => {
                         choice = [[Class.palisade], 1, 'castle', 'norm']; 
                         sockets.broadcast('A strange trembling...');
                         break;
+                    case 1: 
+                        choice = [[Class.elite_gunner], 1, 'a', 'nest']; 
+                        sockets.broadcast('A strange trembling...');
+                        break;
+              
+      
+                       
                 }
                 boss.prepareToSpawn(...choice);
                 setTimeout(boss.spawn, 3000);
