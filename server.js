@@ -4614,7 +4614,10 @@ var maintainloop = (() => {
          //Make base protectors if needed.
             let f = (loc, team) => { 
                 let o = new Entity(loc);
-                    o.define(Class.ai_AC);
+                let arrayOfClasses = [Class.ai_AC, Class.ai_twin_closer ]                  
+                      let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
+                  
+                o.define(newClass);
                     o.team = -100;
                     o.color = [35, 35, 35, ,35][team-1];
             };
