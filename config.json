@@ -11,16 +11,16 @@
   "runSpeed": 1.5,
   "maxHeartbeatInterval": 300000,
   "verbose": true,
-  "WIDTH": 1508,
-  "HEIGHT": 1508,
+  "WIDTH": 1505,
+  "HEIGHT": 1500,
   "MODE": "tdm",
   "RANDOM_COLORS": false,
   "BANNED_CHARACTER_REGEX": "/[\uFDFD\u200E\u0000]/gi", 
   "ROOM_SETUP": [
-    [ "norm", "norm", "norm", "norm" ],
-    [ "norm", "nest", "norm", "norm" ],
-    [ "norm", "norm", "nest", "norm" ],
-    [ "bas1", "bas1", "bas1", "bas1" ]
+    [ "bas1", "bas1", "bas1", "bas1", "bas1" ],
+    [ "bas1", "nest", "norm", "bas1", "bas1"],
+    [ "bas1", "norm", "nest", "bas1", "bas1" ],
+    [ "bas1", "bas1", "bas1", "bas1", "bas1" ]
   ],
   "X_GRID": 4,
   "Y_GRID": 4,
