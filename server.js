@@ -4587,16 +4587,13 @@ var maintainloop = (() => {
                 let choice = [];
                 switch (ran.chooseChance(40, 1)) {
                     case 0: 
-                        choice = [[Class.elite_destroyer], 2, 'a', 'nest'];
+                        choice = [[Class.elite_destroyer, Class.elite_gunner, Class.summoner, Class.fallenoverlord, Class.fallen_booster], 2, 'a', 'nest'];
                         break;
-                    case 1: 
+                    case 0: 
                         choice = [[Class.palisade], 1, 'castle', 'norm']; 
                         sockets.broadcast('A strange trembling...');
                         break;
-                    case 1: 
-                        choice = [[Class.elite_gunner], 1, 'a', 'nest']; 
-                        sockets.broadcast('A strange trembling...');
-                        break;
+                
               
       
                        
