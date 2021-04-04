@@ -20,7 +20,7 @@
     [ "norm", "norm", "norm", "norm" ],
     [ "norm", "nest", "norm", "norm" ],
     [ "norm", "norm", "nest", "norm" ],
-    [ "norm", "norm", "norm", "norm" ]
+    [ "bas1", "bas1", "bas1", "bas1" ]
   ],
   "X_GRID": 4,
   "Y_GRID": 4,
