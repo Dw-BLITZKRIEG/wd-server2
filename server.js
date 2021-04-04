@@ -4616,7 +4616,7 @@ var maintainloop = (() => {
                 let o = new Entity(loc);
                     o.define(Class.ai_AC);
                     o.team = -100;
-                    o.color = [10, 11, 12, 15][team-1];
+                    o.color = [35, 35, 35, ,35][team-1];
             };
             for (let i=1; i<5; i++) {
                 room['bas' + i].forEach((loc) => { f(loc, i); }); 
