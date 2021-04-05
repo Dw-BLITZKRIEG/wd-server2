@@ -1749,12 +1749,7 @@ class Entity {
         }
         if (set.HITS_OWN_TYPE != null) { 
             this.settings.hitsOwnType = set.HITS_OWN_TYPE;
-          }
-        if (set.GROW != null) {
-          this.grow = set.GROW
-        }
-        if (set.GROWAMOUNT != null) {
-          this.growAmount = set.GROWAMOUNT
+         
         }  
         if (set.DIE_AT_LOW_SPEED != null) { 
             this.settings.diesAtLowSpeed = set.DIE_AT_LOW_SPEED; 
@@ -4600,13 +4595,8 @@ var maintainloop = (() => {
                         sockets.broadcast('A strange trembling...');
                         break;
                 
-              }
-          }
-        if (element.grow) {
-          //element.SIZE += element.growAmount
-          element.SIZE = element.growAmount - element.range - (3/4 * element.range)
-          if (element.SIZE <= 0) element.SIZE = Math.pow(1, -1000000000000000000000000000000000000000000000000000)
-        }
+      
+        
       
                        
                 }
@@ -4993,3 +4983,39 @@ let websockets = (() => {
 setInterval(gameloop, room.cycleSpeed);
 setInterval(maintainloop, 200);
 setInterval(speedcheckloop, 10000);
+
+
+// Graceful shutdown
+let shutdownWarning = false;
+if (process.platform === "win32") {
+    var rl = require("readline").createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });  
+    rl.on("SIGINT", () => {
+        process.emit("SIGINT");
+    });
+}
+process.on("SIGINT", () => {
+    if (!shutdownWarning) {
+        shutdownWarning = true;
+        sockets.broadcast("The server is going to restart.");
+        util.log('Server going down! Warning broadcasted.');
+        setTimeout(() => {
+            sockets.broadcast("Arena closed.");
+            util.log('Final warning broadcasted.'); 
+            botSpawn = 'ai'
+            entities.forEach(function(element) {
+                element.kill()
+            })
+            setTimeout(() => {
+                util.warn('Process ended.'); 
+                process.exit();
+            }, 3000);
+        }, 10000);
+    }
+});
+} catch(err) {
+  console.log(err)
+  //bot.createMessage('449657813401206785', String(err)).then(throwMe(err))
+}
