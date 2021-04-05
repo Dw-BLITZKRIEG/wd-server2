@@ -1748,8 +1748,14 @@ class Entity {
             this.settings.canGoOutsideRoom = set.CAN_GO_OUTSIDE_ROOM; 
         }
         if (set.HITS_OWN_TYPE != null) { 
-            this.settings.hitsOwnType = set.HITS_OWN_TYPE; 
+            this.settings.hitsOwnType = set.HITS_OWN_TYPE;
+          }
+        if (set.GROW != null) {
+          this.grow = set.GROW
         }
+        if (set.GROWAMOUNT != null) {
+          this.growAmount = set.GROWAMOUNT
+        }  
         if (set.DIE_AT_LOW_SPEED != null) { 
             this.settings.diesAtLowSpeed = set.DIE_AT_LOW_SPEED; 
         }
@@ -4594,7 +4600,13 @@ var maintainloop = (() => {
                         sockets.broadcast('A strange trembling...');
                         break;
                 
-              
+              }
+          }
+        if (element.grow) {
+          //element.SIZE += element.growAmount
+          element.SIZE = element.growAmount - element.range - (3/4 * element.range)
+          if (element.SIZE <= 0) element.SIZE = Math.pow(1, -1000000000000000000000000000000000000000000000000000)
+        }
       
                        
                 }
@@ -4980,4 +4992,4 @@ let websockets = (() => {
 // Bring it to life
 setInterval(gameloop, room.cycleSpeed);
 setInterval(maintainloop, 200);
-setInterval(speedcheckloop, 1000);
+setInterval(speedcheckloop, 10000);
