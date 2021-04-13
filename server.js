@@ -1748,9 +1748,8 @@ class Entity {
             this.settings.canGoOutsideRoom = set.CAN_GO_OUTSIDE_ROOM; 
         }
         if (set.HITS_OWN_TYPE != null) { 
-            this.settings.hitsOwnType = set.HITS_OWN_TYPE;
-         
-        }  
+            this.settings.hitsOwnType = set.HITS_OWN_TYPE; 
+        }
         if (set.DIE_AT_LOW_SPEED != null) { 
             this.settings.diesAtLowSpeed = set.DIE_AT_LOW_SPEED; 
         }
@@ -4595,8 +4594,7 @@ var maintainloop = (() => {
                         sockets.broadcast('A strange trembling...');
                         break;
                 
-      
-        
+              
       
                        
                 }
@@ -4982,40 +4980,4 @@ let websockets = (() => {
 // Bring it to life
 setInterval(gameloop, room.cycleSpeed);
 setInterval(maintainloop, 200);
-setInterval(speedcheckloop, 10000);
-
-
-// Graceful shutdown
-let shutdownWarning = false;
-if (process.platform === "win32") {
-    var rl = require("readline").createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });  
-    rl.on("SIGINT", () => {
-        process.emit("SIGINT");
-    });
-}
-process.on("SIGINT", () => {
-    if (!shutdownWarning) {
-        shutdownWarning = true;
-        sockets.broadcast("The server is going to restart.");
-        util.log('Server going down! Warning broadcasted.');
-        setTimeout(() => {
-            sockets.broadcast("Arena closed.");
-            util.log('Final warning broadcasted.'); 
-            botSpawn = 'ai'
-            entities.forEach(function(element) {
-                element.kill()
-            })
-            setTimeout(() => {
-                util.warn('Process ended.'); 
-                process.exit();
-            }, 3000);
-        }, 10000);
-    }
-});
-} catch(err) {
-  console.log(err)
-  //bot.createMessage('449657813401206785', String(err)).then(throwMe(err))
-}
+setInterval(speedcheckloop, 1000);
