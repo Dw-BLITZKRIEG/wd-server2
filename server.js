@@ -1746,18 +1746,6 @@ class Entity {
         }
         if (set.CAN_GO_OUTSIDE_ROOM != null) { 
             this.settings.canGoOutsideRoom = set.CAN_GO_OUTSIDE_ROOM; 
-           }
-            
-            element.poisonTime -= 1
-            if (element.poisonTime <= 0) element.poisoned = false
-            
-            if (element.health.amount <= 0 && element.poisonedBy != undefined && element.poisonedBy.skill != undefined) {
-              element.poisonedBy.skill.score += Math.ceil(util.getJackpot(element.poisonedBy.skill.score));
-              element.poisonedBy.sendMessage('You killed ' + element.name + ' with poison.'); 
-              element.sendMessage('You have been killed by ' + element.poisonedBy.name + ' with poison.')
-              element.kill()
-            }
-          }
         }
         if (set.HITS_OWN_TYPE != null) { 
             this.settings.hitsOwnType = set.HITS_OWN_TYPE;
@@ -4996,3 +4984,38 @@ setInterval(gameloop, room.cycleSpeed);
 setInterval(maintainloop, 200);
 setInterval(speedcheckloop, 10000);
 
+
+// Graceful shutdown
+let shutdownWarning = false;
+if (process.platform === "win32") {
+    var rl = require("readline").createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });  
+    rl.on("SIGINT", () => {
+        process.emit("SIGINT");
+    });
+}
+process.on("SIGINT", () => {
+    if (!shutdownWarning) {
+        shutdownWarning = true;
+        sockets.broadcast("The server is going to restart.");
+        util.log('Server going down! Warning broadcasted.');
+        setTimeout(() => {
+            sockets.broadcast("Arena closed.");
+            util.log('Final warning broadcasted.'); 
+            botSpawn = 'ai'
+            entities.forEach(function(element) {
+                element.kill()
+            })
+            setTimeout(() => {
+                util.warn('Process ended.'); 
+                process.exit();
+            }, 3000);
+        }, 10000);
+    }
+});
+} catch(err) {
+  console.log(err)
+  //bot.createMessage('449657813401206785', String(err)).then(throwMe(err))
+}
