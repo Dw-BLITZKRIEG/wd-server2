@@ -1,5 +1,9 @@
 # UPDATE AND CHANGELOOK
 ----------------------------------------------------------------------------------------------
+* added new celestial boss type:celestial paladin
+* added new secret tank
+* added trapper
+______________________________________________________________________________________________________
 4.04.2021
 
 testbed event endend :(
