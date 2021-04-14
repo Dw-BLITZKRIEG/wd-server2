@@ -476,7 +476,7 @@ class io_nearestDifferentMaster extends IO {
             if (!e.invuln) {
             if (e.master.master.team !== this.body.master.master.team) {
             if (e.master.master.team !== -101) {
-            if (e.type === 'tank' || e.type === 'crasher' || (!this.body.aiSettings.shapefriend && e.type === 'food')) {
+            if (e.type === 'tank' || e.type === 'crasher', 'crasher2' || (!this.body.aiSettings.shapefriend && e.type === 'food')) {
             if (Math.abs(e.x - m.x) < range && Math.abs(e.y - m.y) < range) {
             if (!this.body.aiSettings.blind || (Math.abs(e.x - mm.x) < range && Math.abs(e.y - mm.y) < range)) return e;
             } } } } } }
