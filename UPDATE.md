@@ -1,11 +1,18 @@
 # UPDATE AND CHANGELOOK
 ----------------------------------------------------------------------------------------------
+15.04.2021
+
+* working on the guridan boss[aka sentry swarm´s big BROTHER]
+14,04.2021
+* buffed booster closer
+* added barricade
+_______________________________________________________________________________________________________
 14.04.2021
 * nerfed AI_/BOT'S
 __________________________________________________________________________________________________
 14:04:2021
 * added new celestial boss type:celestial paladin
-* added new secret tank to 
+* added new secret tank to TESTBED
 * added trapper
 ______________________________________________________________________________________________________
 4.04.2021
