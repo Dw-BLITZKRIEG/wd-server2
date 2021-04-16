@@ -19,7 +19,7 @@
   "ROOM_SETUP": [
     [ "norm", "norm", "norm", "norm" ],
     [ "norm", "nest", "norm", "norm" ],
-    [ "norm", "norm", "nest", "norm" ],
+    [ "norm", "bas3", "nest", "norm" ],
     [ "norm", "norm", "norm", "norm" ]
   ],
   "X_GRID": 4,
