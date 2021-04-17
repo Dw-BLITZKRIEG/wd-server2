@@ -4590,7 +4590,7 @@ var maintainloop = (() => {
                 let choice = [];
                 switch (ran.chooseChance(40, 1)) {
                     case 0: 
-                        choice = [[Class.elite_destroyer, Class.elite_gunner, Class.summoner_ai, Class.fallenoverlord_ai, Class.fallen_booster_ai], 2, 'a', 'nest'];
+                        choice = [[Class.elite_destroyer, Class.elite_gunner, Class.summoner_ai, Class.fallenoverlord_ai, Class.fallen_booster_ai, Class.elite_battelship, Class.elite_KILLER, Class.Celestial_paladin], 2, 'a', 'nest'];
                         break;
                     case 0: 
                         choice = [[Class.palisade], 1, 'castle', 'norm']; 
