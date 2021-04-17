@@ -182,7 +182,7 @@ var Class = (() => {
         def[k].index = i++;
     }
     return def;
-)();
+})();
 
 // Define IOs (AI)
 function nearest(array, location, test = () => { return true; }) {
