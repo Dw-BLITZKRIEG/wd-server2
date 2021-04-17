@@ -1,5 +1,13 @@
 # UPDATE AND CHANGELOOK
 ----------------------------------------------------------------------------------------------
+17.04.2021
+
+* added new elite boss: elite_battelship
+* added new developer sprayer to dev!
+* added a lot more bosses on testbed bosses page!
+* 3 new boss spawnig now! the fllowing bosses are
+1.celestial paladin, 2.elite battelship, 3.elite_KILLER
+_______________________________________________________________________________________________
 16.04.2021
 
 * added guradian boss
