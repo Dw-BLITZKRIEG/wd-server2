@@ -1809,6 +1809,9 @@ class Entity {
         }
         if (set.AI != null) { 
             this.aiSettings = set.AI; 
+          }
+        if (set.INVISIBLE != null) { 
+            this.invisible = set.INVISIBLE;
         }
         if (set.ALPHA != null) { 
             this.alpha = set.ALPHA;
