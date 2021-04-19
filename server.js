@@ -4621,7 +4621,7 @@ var maintainloop = (() => {
          //Make base protectors if needed.
             let f = (loc, team) => { 
                 let o = new Entity(loc)
-                let arrayOfClasses = [Class.dominator01, Class.dominator02, Class.dominator03]                  
+                let arrayOfClasses = [Class.dominator01, Class.dominator02]                  
                       let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
                   o.define(newClass);
                     o.team = -team;
