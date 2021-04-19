@@ -1,5 +1,10 @@
 # UPDATE AND CHANGELOOK
 ----------------------------------------------------------------------------------------------
+19.04.2021
+
+* added 2 new dominators
+* added a new tool-set tank upgrades from auto-3
+____________________________________________________________________________________________
 17.04.2021
 
 * added new elite boss: elite_battelship
