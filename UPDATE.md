@@ -1,5 +1,12 @@
 # UPDATE AND CHANGELOOK
 ----------------------------------------------------------------------------------------------
+01.05.2021
+
+* added new celestial: enternal!... but sandly it won´t spawn natural only by dev´s!
+* added new emkd-x bosses will spawn naturly
+* added a lot more bosses to bosses 
+* fixed 'GUNNER-DOMINATOR'´s AI!
+____________________________________________________________________________________________
 22.04.2021
 
 * working on a new celstial: enternal!

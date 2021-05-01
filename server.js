@@ -4597,7 +4597,7 @@ var maintainloop = (() => {
                         sockets.broadcast('A strange trembling...');
                         break;
                     case 0: 
-                        choice = [[Class.EMKD_1], 1, 'a', 'nest'];
+                        choice = [[Class.EMKD_1,   Class.EMKD_2], 1, 'a', 'nest'];
                     sockets.broadcast('A strange trembling and a wierd shaking...');
                         break;
               
