@@ -3388,6 +3388,7 @@ const sockets = (() => {
                     body.sendMessage('You will be invulnerable until you move or shoot.');
                     body.sendMessage('You have spawned! Welcome to the game..');
                     body.sendMessage('WELCOME to BLITZKRIEGS SERVER ');
+
                     
                     // Move the client camera
                     socket.talk('c', socket.camera.x, socket.camera.y, socket.camera.fov);
