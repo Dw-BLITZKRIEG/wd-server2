@@ -11,18 +11,16 @@
   "runSpeed": 1.5,
   "maxHeartbeatInterval": 300000,
   "verbose": true,
-  "WIDTH": 1593,
-  "HEIGHT": 1593,
+  "WIDTH": 2000,
+  "HEIGHT": 2000,
   "MODE": "ffa",
   "RANDOM_COLORS": false,
   "BANNED_CHARACTER_REGEX": "/[\uFDFD\u200E\u0000]/gi", 
   "ROOM_SETUP": [
-  
-    [ "norm", "norm", "norm", "norm", "norm"  ],
-    [ "norm", "norm", "norm", "norm", "norm"  ],
-    [ "norm", "nest", "norm", "norm", "norm"  ],
-    [ "norm", "bas3", "nest", "bas5", "norm"  ],
-    [ "norm", "norm", "norm", "norm", "norm"  ]
+    ["norm", "norm", "norm", "norm"],
+    ["norm", "nest", "nest", "norm"],
+    ["norm", "bas3", "nest", "norm"],
+    ["norm", "norm", "norm", "norm"]
   ],
   "X_GRID": 4,
   "Y_GRID": 4,
