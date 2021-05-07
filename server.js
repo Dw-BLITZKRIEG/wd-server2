@@ -292,6 +292,13 @@ class io_listenToPlayer extends IO {
                 y: 100 * Math.sin(kk),
             };
         }
+        if (this.player.command.reverseautospin) {
+            let kk = Math.atan2(this.body.control.target.y, this.body.control.target.x) + -0.02;
+            targ = {
+                x: 100 * Math.cos(kk),
+                y: 100 * Math.sin(kk),
+            };
+        }
         if (this.body.invuln) {
             if (this.player.command.right || this.player.command.left || this.player.command.up || this.player.command.down || this.player.command.lmb) {
                 this.body.invuln = false;
@@ -2201,6 +2208,8 @@ class Entity {
             oldFacing = this.facing;
         switch(this.facingType) {
         case 'autospin':
+            this.facing += 0.02 / roomSpeed;
+            break;
             this.facing += 0.02 / roomSpeed;
             break;
         case 'turnWithSpeed':
