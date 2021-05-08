@@ -1,5 +1,13 @@
 # UPDATE AND CHANGELOOK
 ----------------------------------------------------------------------------------------------
+08.05.2021
+
+* added new branch to developer
+* added new railgun to beta-tanks!
+* added twin sniper and triplet sniper
+* re-placed dev tanks with developer btw replaced dev tanks with a new look inspiratet by wommy-arras.io event-developer
+
+__________________________________________________________________________________________
 01.05.2021
 
 * added new celestial: enternal!... but sandly it won´t spawn natural only by dev´s!
