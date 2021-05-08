@@ -4676,7 +4676,7 @@ var maintainloop = (() => {
                     o.name += ran.chooseBotName();
                     o.refreshBodyAttributes();
                                   
-                    o.color = 23;
+                    o.color = 17;
                   
           
                     bots.push(o);
