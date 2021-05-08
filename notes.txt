@@ -26,3 +26,27 @@ ARRAS:IO
 11= green team
 
 12= other´s ffa/red team
+
+13= sqaure color
+
+14= pentagon´s color´s
+
+15= purple team
+
+16= cannon/turret color
+
+17= grey
+
+18= fallen color
+
+19= black-blackhole
+
+20= undercover cop siren
+
+21= you ffa  > turret/gun color
+
+22= 21
+
+23= 
+
+24= 
