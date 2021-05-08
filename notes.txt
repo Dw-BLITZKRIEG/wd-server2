@@ -1,0 +1,28 @@
+NOTES ARE HERE
+
+ARRAS:IO
+
+// colors
+1= slime green
+
+2= defender orange
+
+3= blass orange
+
+4= developer purple
+
+5= crasher pink
+ 
+6= egg color
+
+7= brown
+
+8= enternal white
+
+9= black
+
+10= you ffa/ blue team
+
+11= green team
+
+12= other´s ffa/red team
