@@ -1460,7 +1460,7 @@ var bringToLife = (() => {
           if (my.invisible[1]) {
 		  	    my.alpha = Math.max(0.01, my.alpha - my.invisible[1]);
 		  	    if (!(my.velocity.x * my.velocity.x + my.velocity.y * my.velocity.y < 0.15 * 0.15) || my.damageRecieved)
-		  	      	my.alpha = Math.min(0, my.alpha + my.invisible[0]);
+		  	      	my.alpha = Math.min(1, my.alpha + my.invisible[0]);
 		    } else my.alpha = 1;
         // So we start with my master's thoughts and then we filter them down through our control stack
         my.controllers.forEach(AI => {
