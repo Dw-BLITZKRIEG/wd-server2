@@ -4,8 +4,9 @@
 
 * added new knight!
 * may add a elite knight boss!
-
+* fixed team og chrasher and sentry ;´)
 * deleted *celestial paladin    from spawnig
+
 _________________________________________________________________________________________________
 
 08.05.2021

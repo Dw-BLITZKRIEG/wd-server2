@@ -4622,11 +4622,13 @@ var maintainloop = (() => {
         };
     })();
     let spawnCrasher = census => {
+        
         if (ran.chance(1 -  0.5 * census.crasher / room.maxFood / room.nestFoodAmount)) {
             let spot, i = 30;
             do { spot = room.randomType('nest'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
             let type = (ran.dice(50)) ? ran.choose([Class.crasher2, Class.sentryGun, Class.sentrySwarm, Class.sentryTrap, Class.crasher2]) : Class.crasher;
             let o = new Entity(spot);
+                o.team= -100;
                 o.define(type);
         }
     };
@@ -4708,6 +4710,9 @@ var maintainloop = (() => {
                 case 3: a = Class.pentagon; break;
                 case 4: a = Class.bigPentagon; break;
                 case 5: a = Class.hugePentagon; break;
+                  case 5: a = Class.greenpentagon; break;
+                  case 5: a = Class.greensqaure; break;
+                  case 5: a = Class.greentriangle; break;
                 default: throw('bad food level');
             }
             if (a !== {}) {
