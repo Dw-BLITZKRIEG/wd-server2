@@ -1,5 +1,13 @@
 # UPDATE AND CHANGELOOK
 ----------------------------------------------------------------------------------------------
+09.05.2021
+
+* added new knight!
+* may add a elite knight boss!
+
+* deleted *celestial paladin    from spawnig
+_________________________________________________________________________________________________
+
 08.05.2021
 
 * added new branch to developer
