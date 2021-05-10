@@ -4600,20 +4600,15 @@ var maintainloop = (() => {
                 util.log('[SPAWN] Preparing to spawn...');
                 timer = 0;
                 let choice = [];
-                switch (ran.chooseChance(40, 1)) {
+                switch (ran.chooseChance(5, 1)) {
                     case 0: 
                         choice = [[Class.elite_destroyer, Class.elite_gunner, Class.summoner_ai, Class.fallenoverlord_ai, Class.fallen_booster_ai, Class.elite_battelship, Class.elite_KILLER], 2, 'a', 'nest'];
                         break;
-                    case 0: 
+                    case 1: 
                         choice = [[Class.palisade], 1, 'castle', 'norm']; 
                         sockets.broadcast('A strange trembling...');
                         break;
-                    case 0: 
-                        choice = [[Class.EMKD_1,   Class.EMKD_2], 1, 'castle', 'nest'];
-                    sockets.broadcast('A strange trembling and a wierd shaking...');
-                        break;
-              
-      
+                  
                        
                 }
                 boss.prepareToSpawn(...choice);
