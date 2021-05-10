@@ -4609,8 +4609,8 @@ var maintainloop = (() => {
                         sockets.broadcast('A strange trembling...');
                         break; 
                      case 2: 
-                        choice = [[Class.EMKD_1, Class.EMKD_2], 1, 'castle', 'norm']; 
-                        sockets.broadcast('A strange trembling...');
+                        choice = [[Class.EMKD_1, Class.EMKD_2], 1, 'emkd', 'norm']; 
+                        sockets.broadcast('A strange trembling and a wierd shaking...');
                         break; 
                 }
                 boss.prepareToSpawn(...choice);
