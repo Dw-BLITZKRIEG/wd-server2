@@ -4596,11 +4596,11 @@ var maintainloop = (() => {
             };
         })();
         return census => {
-            if (timer > 100 && ran.dice(10 - timer)) {
+            if (timer > 3000 && ran.dice(1500 - timer)) {
                 util.log('[SPAWN] Preparing to spawn...');
                 timer = 0;
                 let choice = [];
-                switch (ran.chooseChance(40, 1)) {
+                switch (ran.chooseChance(5, 1)) {
                     case 0: 
                         choice = [[Class.elite_destroyer, Class.elite_gunner, Class.summoner_ai, Class.fallenoverlord_ai, Class.fallen_booster_ai, Class.elite_battelship, Class.elite_KILLER], 2, 'a', 'nest'];
                         break;
