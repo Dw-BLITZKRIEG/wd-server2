@@ -1,5 +1,10 @@
 # UPDATE AND CHANGELOOK
 ----------------------------------------------------------------------------------------------
+11.05.2021
+
+* added new celestial freja..
+* maby if i have sparte time i work on celestial zraphiel!
+__________________________________________________________________________________
 10.05.2021
 
 * buffen destroyer and steam dom....

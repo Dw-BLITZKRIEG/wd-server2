@@ -74,3 +74,19 @@ ARRAS:IO
 35= arena closer color
 
 36= rainbow
+
+// shapes
+
+1= dot
+2= HEALTHbar
+3= triangle
+4= sqaure
+-1= dot
+-2= verticale bar
+-3= trap
+
+etc
+
+// need be added if time
+
+elite knight 
