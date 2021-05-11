@@ -75,6 +75,14 @@ ARRAS:IO
 
 36= rainbow
 
+
+
+
+_________________________________________________
+
+
+
+
 // shapes
 
 1= dot
@@ -85,8 +93,49 @@ ARRAS:IO
 -2= verticale bar
 -3= trap
 
-etc
+
+
+______________________________________
+
+
+
+
 
 // need be added if time
 
-elite knight 
+elite knight [not sure!]
+
+celestial zraphiel
+
+machine gun MK2 
+
+basic mind
+
+pound mind
+
+tri-angle mind
+
+smasher mind
+
+mach mind
+
+manager mind
+
+TRAP-mind
+
+MEGA mind
+
+snow golem 
+
+
+____________________
+
+
+
+// things to figure out!
+
+how to make an arena closing and spawnig AC´s
+
+how to let doms´s respawn and be capturabale
+
+how to make less LLL--LL-AA-GG-AAA-GGGGGGGGGGGGGGGGG
