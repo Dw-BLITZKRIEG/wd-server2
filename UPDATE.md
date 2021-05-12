@@ -1,5 +1,10 @@
 # UPDATE AND CHANGELOOK
 ----------------------------------------------------------------------------------------------
+12.05.2021
+
+* added machinegun mk2 upgrades from machinegun
+* added airscrew upgrades from twin and single
+______________________________________________________________________________
 11.05.2021
 
 * added new celestial freja..
