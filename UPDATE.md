@@ -1,5 +1,10 @@
 # UPDATE AND CHANGELOOK
 ----------------------------------------------------------------------------------------------
+13.05.2021
+
+* added homing upgrades from basic
+* added triple homer upgrades from homer
+___________________________________________________________
 12.05.2021
 
 * added machinegun mk2 upgrades from machinegun
