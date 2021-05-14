@@ -4578,14 +4578,19 @@ var maintainloop = (() => {
                     if (n === 1) {
                         begin = 'A visitor is coming.';
                         arrival = names[0] + ' has arrived.'; 
+                      } else {
+            begin = "The Wave has started!";
+            arrival = "";
+            arrival += "Wave " + wave + " has Started.";
+          }
+          wave += 1;
+                
                     } else {
                         begin = 'Visitors are coming.';
                         arrival = '';
                         for (let i=0; i<n-2; i++) arrival += names[i] + ', ';
                         arrival += names[n-2] + ' and ' + names[n-1] + ' have arrived.';
                     }
-          }
-          wave += 1;
                 },
                 spawn: () => {
                     sockets.broadcast(begin);
