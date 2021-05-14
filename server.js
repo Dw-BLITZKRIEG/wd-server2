@@ -4549,6 +4549,7 @@ var maintainloop = (() => {
     // Spawning functions
     let spawnBosses = (() => {
         let timer = 0;
+        let wave = 1;
         let boss = (() => {
             let i = 0,
                 names = [],
@@ -4583,6 +4584,8 @@ var maintainloop = (() => {
                         for (let i=0; i<n-2; i++) arrival += names[i] + ', ';
                         arrival += names[n-2] + ' and ' + names[n-1] + ' have arrived.';
                     }
+          }
+          wave += 1;
                 },
                 spawn: () => {
                     sockets.broadcast(begin);
