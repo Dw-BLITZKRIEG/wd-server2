@@ -2509,6 +2509,13 @@ let spawnarenacloser = (loc, mode, type) => {
   o.color = [35][-mode];
 };
 
+let spawnarenacloser2 = (loc, mode, type) => {
+  let o = new Entity(loc);
+  o.define(type);
+  o.team = mode || -100;
+  o.color = [35][-mode];
+};
+
 function threeHourRestart() {
   restart3hour();
 }
@@ -2526,17 +2533,6 @@ function restart3hour() {
           loc,
           -0,
           ran.choose(
-            [Class.arenacloser2, Class.arenacloser2, Class.arenacloser2],
-            1
-          )
-        );
-      });
-    if (room.gameMode === "tdm")
-      room["nest"].forEach(loc => {
-        spawnarenacloser(
-          loc,
-          -0,
-          ran.choose(
             [Class.arenacloser, Class.arenacloser, Class.arenacloser],
             1
           )
@@ -2559,7 +2555,18 @@ function restart3hour() {
           loc,
           -0,
           ran.choose(
-            [Class.arenacloser2, Class.arenacloser2, Class.arenacloser2],
+            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
+            1
+          )
+        );
+      });
+    if (room.gameMode === "tdm")
+      room["nest"].forEach(loc => {
+        spawnarenacloser(
+          loc,
+          -0,
+          ran.choose(
+            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
             1
           )
         );
@@ -2579,11 +2586,11 @@ function closemode() {
     ArenaClosed();
     if (room.gameMode === "tdm")
       room["nest"].forEach(loc => {
-        spawnarenacloser(
+        spawnarenacloser2(
           loc,
           -0,
           ran.choose(
-            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
+            [Class.arenacloser2, Class.arenacloser2, Class.arenacloser2],
             1
           )
         );
