@@ -2485,6 +2485,144 @@ class Entity {
         return this.health.amount <= 0; 
     }
 }
+function closeArena() {
+  ArenaClosed();
+}
+
+var loops = 0;
+function ArenaClosed() {
+  loops++;
+  if (loops < 31) {
+    setTimeout(ArenaClosed, 2000);
+  } else {
+    sockets.broadcast("Closing!");
+
+    process.exit();
+    global.restart;
+  }
+}
+
+let spawnarenacloser = (loc, mode, type) => {
+  let o = new Entity(loc);
+  o.define(type);
+  o.team = mode || -100;
+  o.color = [35][-mode];
+};
+
+function threeHourRestart() {
+  restart3hour();
+}
+var loops = 0;
+function restart3hour() {
+  loops++;
+  if (loops < 3600000) {
+    setTimeout(restart3hour, 1000);
+  } else {
+    sockets.broadcast("ARENA CLOSED: NO PLAYERS MAY JOIN!");
+    ArenaClosed();
+    if (room.gameMode === "tdm")
+      room["nest"].forEach(loc => {
+        spawnarenacloser(
+          loc,
+          -0,
+          ran.choose(
+            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
+            1
+          )
+        );
+      });
+    if (room.gameMode === "tdm")
+      room["nest"].forEach(loc => {
+        spawnarenacloser(
+          loc,
+          -0,
+          ran.choose(
+            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
+            1
+          )
+        );
+      });
+    if (room.gameMode === "tdm")
+      room["nest"].forEach(loc => {
+        spawnarenacloser(
+          loc,
+          -0,
+          ran.choose(
+            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
+            1
+          )
+        );
+      });
+    if (room.gameMode === "tdm")
+      room["nest"].forEach(loc => {
+        spawnarenacloser(
+          loc,
+          -0,
+          ran.choose(
+            [Class.arenacloser2, Class.arenacloser2, Class.arenacloser2],
+            1
+          )
+        );
+      });
+  }
+}
+function modeclose() {
+  closemode();
+}
+var loops = 0;
+function closemode() {
+  loops++;
+  if (loops < 10) {
+    setTimeout(closemode, 1000);
+  } else {
+    sockets.broadcast("ARENA CLOSED: NO PLAYERS MAY JOIN!");
+    ArenaClosed();
+    if (room.gameMode === "tdm")
+      room["nest"].forEach(loc => {
+        spawnarenacloser(
+          loc,
+          -0,
+          ran.choose(
+            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
+            1
+          )
+        );
+      });
+    if (room.gameMode === "tdm")
+      room["nest"].forEach(loc => {
+        spawnarenacloser(
+          loc,
+          -0,
+          ran.choose(
+            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
+            1
+          )
+        );
+      });
+    if (room.gameMode === "tdm")
+      room["nest"].forEach(loc => {
+        spawnarenacloser(
+          loc,
+          -0,
+          ran.choose(
+            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
+            1
+          )
+        );
+      });
+    if (room.gameMode === "tdm")
+      room["nest"].forEach(loc => {
+        spawnarenacloser(
+          loc,
+          -0,
+          ran.choose(
+            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
+            1
+          )
+        );
+      });
+  }
+}
 
 /*** SERVER SETUP ***/
 // Make a speed monitor
@@ -4578,19 +4716,13 @@ var maintainloop = (() => {
                     if (n === 1) {
                         begin = 'A visitor is coming.';
                         arrival = names[0] + ' has arrived.'; 
-                      } else {
+                      
+                    } else {
             begin = "The Wave has started!";
             arrival = "";
             arrival += "Wave " + wave + " has Started.";
-          }
-          wave += 1;
-                
-                    } else {
-                        begin = 'Visitors are coming.';
-                        arrival = '';
-                        for (let i=0; i<n-2; i++) arrival += names[i] + ', ';
-                        arrival += names[n-2] + ' and ' + names[n-1] + ' have arrived.';
-                    }
+                    }    
+                     wave += 1;
                 },
                 spawn: () => {
                     sockets.broadcast(begin);
@@ -4604,18 +4736,49 @@ var maintainloop = (() => {
             };
         })();
         return census => {
-            if (timer > 3000 && ran.dice(1500 - timer)) {
+            if (timer > 31 && ran.dice(15 - timer)) {
                 util.log('[SPAWN] Preparing to spawn...');
                 timer = 0;
                 let choice = [];
-                switch (ran.chooseChance(5, 1)) {
-                    case 0: 
-                        choice = [[Class.elite_destroyer, Class.elite_gunner, Class.summoner_ai, Class.fallenoverlord_ai, Class.fallen_booster_ai, Class.elite_battelship, Class.elite_KILLER], 2, 'a', 'nest'];
-                        break;
-                    case 1: 
-                        choice = [[Class.palisade], 1, 'castle', 'norm']; 
-                        sockets.broadcast('A strange trembling...');
-                        break; 
+                switch (wave) {
+                         
+          case 5:
+            setTimeout(() => closemode(), 1e3);
+              
+            sockets.broadcast("BLUE HAS WON THE GAME!!!");
+            break;   
+          case 5:
+            setTimeout(() => closemode(), 1e3);
+              
+            sockets.broadcast("Arena Closer spawned");
+            break;   
+          case 5:
+            setTimeout(() => closemode(), 1e3);
+              
+            sockets.broadcast(" ");
+            break;
+              
+         
+            break;
+                  case 0:
+            choice = [[Class.elite_destroyer], 1, "castle", "nest"];  
+
+            break;
+          case 1:
+            choice = [[Class.palisade], 1, "castle", "nest"];
+                  
+            break;
+          case 2:
+            choice = [[Class.elite_destroyer, Class.elite_sprayer, Class.elite_gunner], 2, "castle", "nest"];
+                  
+            break;
+          case 3:
+            choice = [[Class.elite_destroyer, Class.elite_sprayer, Class.elite_gunner, Class.palisade], 4, "castle", "nest"];
+                  
+            break;
+          case 4:
+                   sockets.broadcast("final WAVE !!!!!");
+            choice = [[Class.palisade, Class.elite_destroyer, Class.elite_sprayer,Class.elite_destroyer, Class.palisade,Class.elite_gunner, Class.elite_destroyer], 7, "castle", "nest"];
                       
                 }
                 boss.prepareToSpawn(...choice);
