@@ -4742,17 +4742,17 @@ var maintainloop = (() => {
                 let choice = [];
                 switch (wave) {
                          
-          case 5:
+          case 7:
             setTimeout(() => closemode(), 1e3);
               
             sockets.broadcast("BLUE HAS WON THE GAME!!!");
             break;   
-          case 5:
+          case 7:
             setTimeout(() => closemode(), 1e3);
               
             sockets.broadcast("Arena Closer spawned");
             break;   
-          case 5:
+          case 7:
             setTimeout(() => closemode(), 1e3);
               
             sockets.broadcast(" ");
@@ -4774,11 +4774,19 @@ var maintainloop = (() => {
             break;
           case 3:
             choice = [[Class.elite_destroyer, Class.elite_sprayer, Class.elite_gunner, Class.palisade], 4, "castle", "nest"];
-                  
+                           
             break;
           case 4:
+            choice = [[Class.elite_battleship, Class.elite_KILLER, Class.elite_gunner], 3, "a", "nest"];
+                  
+                     break;
+          case 5:
+            choice = [[Class.EMKD_1], 3, "a", "nest"];
+                  
+            break;
+          case 6:
                    sockets.broadcast("final WAVE !!!!!");
-            choice = [[Class.palisade, Class.elite_destroyer, Class.elite_sprayer,Class.elite_destroyer, Class.palisade,Class.elite_gunner, Class.elite_destroyer], 7, "castle", "nest"];
+            choice = [[Class.palisade, Class.elite_destroyer, Class.EMKD_1, Class.elite_battleship, Class.elite_sprayer,Class.elite_destroyer, Class.palisade,Class.elite_gunner, Class.elite_destroyer], 9, "castle", "nest"];
                       
                 }
                 boss.prepareToSpawn(...choice);

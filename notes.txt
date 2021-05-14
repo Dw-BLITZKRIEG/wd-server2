@@ -132,8 +132,6 @@ ____________________
 
 // things to figure out!
 
-how to make an arena closing and spawnig AC´s
-
 how to let doms´s respawn and be capturabale
 
 how to make less LLL--LL-AA-GG-AAA-GGGGGGGGGGGGGGGGG

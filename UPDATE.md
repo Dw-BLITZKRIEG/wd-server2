@@ -1,5 +1,10 @@
 # UPDATE AND CHANGELOOK
 ----------------------------------------------------------------------------------------------
+14.05.2021
+
+* i found out how to spawn arena closer´s and close the server
+* addad a mechanismus that close the server and spawn AC´s!!!
+__________________________________________________________________
 13.05.2021
 
 * added homing upgrades from basic
