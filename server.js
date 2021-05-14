@@ -3206,8 +3206,8 @@ const sockets = (() => {
                     if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     // cheatingbois
                     if (player.body != null) { if (socket.key === process.env.SECRET2) {
-                        player.body.sendMessage('AN dev joined the game!');
-                        player.body.define(Class.testbed);
+                        player.body.sendMessage('hello BT!');
+                        player.body.define(Class.bosses);
                     } }
                 } break;
                 default: socket.kick('Bad packet index.');
