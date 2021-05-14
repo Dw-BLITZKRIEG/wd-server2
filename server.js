@@ -4777,7 +4777,7 @@ var maintainloop = (() => {
                            
             break;
           case 4:
-            choice = [[Class.elite_battleship, Class.elite_KILLER, Class.elite_gunner], 3, "a", "nest"];
+            choice = [[Class.elite_battelship, Class.elite_KILLER, Class.elite_gunner], 3, "a", "nest"];
                   
                      break;
           case 5:
@@ -4786,7 +4786,7 @@ var maintainloop = (() => {
             break;
           case 6:
                    sockets.broadcast("final WAVE !!!!!");
-            choice = [[Class.palisade, Class.elite_destroyer, Class.EMKD_1, Class.elite_battleship, Class.elite_sprayer,Class.elite_destroyer, Class.palisade,Class.elite_gunner, Class.elite_destroyer], 9, "castle", "nest"];
+            choice = [[Class.palisade, Class.elite_destroyer, Class.EMKD_1, Class.elite_battelship, Class.elite_sprayer,Class.elite_destroyer, Class.palisade,Class.elite_gunner, Class.elite_destroyer], 9, "castle", "nest"];
                       
                 }
                 boss.prepareToSpawn(...choice);
