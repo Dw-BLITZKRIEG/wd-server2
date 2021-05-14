@@ -3205,7 +3205,7 @@ const sockets = (() => {
                 default: socket.kick('Bad packet index.');
                 }
             }
-                 tor traffic and handle inactivity disconnects
+            // Monitor traffic and handle inactivity disconnects
             function traffic(socket) {
                 let strikes = 0;
                 // This function will be called in the slow loop
