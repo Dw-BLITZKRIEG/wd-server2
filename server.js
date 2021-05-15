@@ -4807,19 +4807,31 @@ var maintainloop = (() => {
                     
           case 6:
             choice = [[Class.EMKD_1], 1, "a", "nest"];
-                  
+                  sockets.broadcast("A strange trembling an a wierd shaking...");
             break;case 7:
             choice = [[Class.summoner_ai, Class.EMKD_1], 2, "a", "nest"];
-                  
+                   sockets.broadcast("A strange trembling an a wierd shaking...");
             break;case 8:
             choice = [[Class.EMKD_2], 1, "a", "nest"];
-                  
+                   sockets.broadcast("A strange trembling an a wierd shaking...");
             break;case 9:
             choice = [[Class.EMKD_2, Class.elite_battelship], 1, "a", "nest"];
                   
             break;case 10:
-            choice = [[Class.EMKD_2, Class.elite_battelship], 1, "a", "nest"];
-                  
+            choice = [[Class.EMKD_3], 1, "a", "nest"];
+                   sockets.broadcast("A strange trembling an a wierd shaking...");
+            break;case 11:
+            choice = [[Class.palisade], 1, "a", "nest"];
+                   sockets.broadcast("A strange trembling..");
+            break;case 12:
+            choice = [[Class.fallenoverlord_ai], 1, "a", "nest"];
+                   sockets.broadcast("An fallen overlod spawned!"); 
+            break;case 13:
+            choice = [[Class.fallen_booster_ai], 1, "a", "nest"];
+                    sockets.broadcast("An fallen booster spawned");
+            break;case 14:
+            choice = [[Class.fallen_ac], 1, "a", "nest"];
+                    sockets.broadcast("An fallen Arena Closer spawned");
             break;
           case 15:
                    sockets.broadcast("final WAVE !!!!!");
