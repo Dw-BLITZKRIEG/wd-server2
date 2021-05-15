@@ -4791,7 +4791,7 @@ var maintainloop = (() => {
              case 5:
             choice = [[Class.elite_KILLER, Class.elite_destroyer], 2, "a", "nest"];
             
-                    break; 
+                    break;  
           case 6:
             choice = [[Class.EMKD_1], 1, "a", "nest"];
                   sockets.broadcast("A strange trembling an a wierd shaking...");
