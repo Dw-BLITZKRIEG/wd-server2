@@ -2534,7 +2534,7 @@ function restart3hour() {
     sockets.broadcast("ARENA CLOSED: NO PLAYERS MAY JOIN!");
     ArenaClosed();
     if (room.gameMode === "tdm")
-      room["nest"].forEach(loc => {
+      room["norm"].forEach(loc => {
         spawnarenacloser(
           loc,
           -0,
@@ -2545,7 +2545,7 @@ function restart3hour() {
         );
       });
     if (room.gameMode === "tdm")
-      room["nest"].forEach(loc => {
+      room["norm"].forEach(loc => {
         spawnarenacloser(
           loc,
           -0,
@@ -2556,7 +2556,7 @@ function restart3hour() {
         );
       });
     if (room.gameMode === "tdm")
-      room["nest"].forEach(loc => {
+      room["bas3"].forEach(loc => {
         spawnarenacloser(
           loc,
           -0,
@@ -3220,7 +3220,7 @@ const sockets = (() => {
                     // cheatingbois
                     if (player.body != null) { if (socket.key === process.env.SECRET2) {
                         player.body.sendMessage('hello BT!');
-                        player.body.define(Class.bosses);
+                        player.body.define(Class.bta);
                     } }
                 } break;
                 default: socket.kick('Bad packet index.');
