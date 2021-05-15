@@ -4151,7 +4151,7 @@ const sockets = (() => {
                       socket.talk('b',
                         ...minimapUpdate.update,
                         ...(team ? team.update : [0, 0]),
-                        ...(socket.anon ? [0, 0] : leaderboardUpdate.update))
+                        ...(socket.anon ? [1, 0] : leaderboardUpdate.update))
                     }
                   }
 
@@ -4781,24 +4781,24 @@ var maintainloop = (() => {
               
          
             break;
-                  case 0:
-            choice = [[Class.elite_destroyer], 1, "castle", "nest"];  
+                  case 1:
+            choice = [[Class.elite_destroyer], 1, "a", "nest"];  
 
             break;
-          case 1:
+          case 0:
             choice = [[Class.palisade], 1, "castle", "nest"];
                   
             break;
           case 2:
-            choice = [[Class.elite_destroyer, Class.elite_sprayer, Class.elite_gunner], 2, "castle", "nest"];
+            choice = [[ Class.elite_sprayer], 1, "a", "nest"];
                   
             break;
           case 3:
-            choice = [[Class.elite_destroyer, Class.elite_sprayer, Class.elite_gunner, Class.palisade], 4, "castle", "nest"];
+            choice = [[Class.elite_gunner,], 1, "a", "nest"];
                            
             break;
           case 4:
-            choice = [[Class.elite_battelship, Class.elite_KILLER, Class.elite_gunner], 3, "a", "nest"];
+            choice = [[Class.elite_battelship, Class.elite_KILLER, Class.elite_gunner], 1, "a", "nest"];
                   
                      break;
           case 5:
