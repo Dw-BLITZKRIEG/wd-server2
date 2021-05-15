@@ -2534,7 +2534,7 @@ function restart3hour() {
     sockets.broadcast("ARENA CLOSED: NO PLAYERS MAY JOIN!");
     ArenaClosed();
     if (room.gameMode === "tdm")
-      room["norm"].forEach(loc => {
+      room["nest"].forEach(loc => {
         spawnarenacloser(
           loc,
           -0,
@@ -2545,7 +2545,7 @@ function restart3hour() {
         );
       });
     if (room.gameMode === "tdm")
-      room["norm"].forEach(loc => {
+      room["nest"].forEach(loc => {
         spawnarenacloser(
           loc,
           -0,
@@ -2556,7 +2556,7 @@ function restart3hour() {
         );
       });
     if (room.gameMode === "tdm")
-      room["bas3"].forEach(loc => {
+      room["nest"].forEach(loc => {
         spawnarenacloser(
           loc,
           -0,
