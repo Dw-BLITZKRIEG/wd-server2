@@ -4767,25 +4767,12 @@ var maintainloop = (() => {
             setTimeout(() => closemode(), 1e3);
               
             sockets.broadcast("RED HAS WON THE GAME!!!");
-            break;   
-          case 20:
-            setTimeout(() => closemode(), 1e3);
-              
-            sockets.broadcast("Arena Closer spawned");
-            break;   
-          case 21:
-            setTimeout(() => closemode(), 1e3);
-              
-            
             break;
-              
-         
-            break;
-                  case 1:
+                  case 0:
             choice = [[Class.elite_destroyer], 1, "a", "nest"];  
 
             break;
-          case 0:
+          case 1:
             choice = [[Class.palisade], 1, "castle", "nest"];
                   
             break;
