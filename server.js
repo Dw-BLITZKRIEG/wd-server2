@@ -4763,20 +4763,20 @@ var maintainloop = (() => {
                 let choice = [];
                 switch (wave) {
                          
-          case 16:
+          case 19:
             setTimeout(() => closemode(), 1e3);
               
-            sockets.broadcast("BLUE HAS WON THE GAME!!!");
+            sockets.broadcast("RED HAS WON THE GAME!!!");
             break;   
-          case 17:
+          case 20:
             setTimeout(() => closemode(), 1e3);
               
             sockets.broadcast("Arena Closer spawned");
             break;   
-          case 18:
+          case 21:
             setTimeout(() => closemode(), 1e3);
               
-            sockets.broadcast(" ");
+            
             break;
               
          
@@ -4821,7 +4821,7 @@ var maintainloop = (() => {
             choice = [[Class.EMKD_3], 1, "a", "nest"];
                    sockets.broadcast("A strange trembling an a wierd shaking...");
             break;case 11:
-            choice = [[Class.palisade], 1, "a", "nest"];
+            choice = [[Class.palisade], 1, "castle", "nest"];
                    sockets.broadcast("A strange trembling..");
             break;case 12:
             choice = [[Class.fallenoverlord_ai], 1, "a", "nest"];
@@ -4833,8 +4833,20 @@ var maintainloop = (() => {
             choice = [[Class.fallen_ac], 1, "a", "nest"];
                     sockets.broadcast("An fallen Arena Closer spawned");
             break;
-          case 15:
-                   sockets.broadcast("final WAVE !!!!!");
+                  case 15:
+            choice = [[Class.Celestial_freja], 1, "a", "nest"];
+                 
+            break;
+                  case 16:
+            choice = [[Class.Celestial_paladin], 1, "a", "nest"];
+                    
+            break;
+                  case 17:
+            choice = [[Class.elite_octo], 1, "a", "nest"];
+            
+            break;
+          case 18:
+                  
             choice = [[Class.palisade, Class.elite_destroyer, Class.EMKD_1, Class.elite_battelship, Class.elite_sprayer,Class.elite_destroyer, Class.palisade,Class.elite_gunner, Class.elite_destroyer], 9, "castle", "nest"];
                       
                 }
