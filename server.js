@@ -2484,7 +2484,7 @@ class Entity {
         this.turrets.forEach(t => t.destroy());
         // Remove from the collision grid
         this.removeFromGrid();
-        this.isGhost = true;
+        this.isGhost = false;
     }    
     
     isDead() {
