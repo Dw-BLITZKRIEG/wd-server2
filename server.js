@@ -4816,36 +4816,33 @@ var maintainloop = (() => {
   };
   let createDom = (loc, team) => {
     let o = new Entity(loc);
-    o.define(Class.fallen_ac);
+    o.define(Class.modeSanctuary);
     o.team = -team;
     o.color = [10, 11, 12, 15][team - 1];
     o.ondeath = () => {
       teamWon(["BOSSES", "BLUE"][team - 1]);
-
     };
     //room.lifetime.push(o)
   };
-       //The NPC function
-    let makenpcs = (() => {
-         //Make base protectors if needed.
-            let f = (loc, team) => { 
-                let o = new Entity(loc)
-                let arrayOfClasses = [Class.dominator01, Class.dominator02, Class.dominator03]                  
-                      let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
-                  o.define(newClass);
-                    o.team = -team;
-                    o.color = [10, 11, 12, ,15][team-1];
-            };
-            for (let i=1; i<5; i++) {
-                room["bas" + i].forEach(loc) => {
-                  f(loc, i); }); 
-          });
+  // The NPC function
+  let makenpcs = (() => {
+    // Make base protectors if needed.
+     let f = (loc, team) => {
+      let o = new Entity(loc);
+      o.define(Class.gunnerDominator, Class.modeSanctuary2);
+      o.team = -100;
+      o.color = [12][team - 1];
+    };
+    for (let i = 1; i < 5; i++) {
+      room["bas" + i].forEach(loc => {
+        f(loc, i);
+      });
     }
     for (let i = 1; i < 5; i++) {
       room["bad" + i].forEach(loc => {
         createDom(loc, i);
       });
-     }
+    }
           
       
         // Return the spawning function
