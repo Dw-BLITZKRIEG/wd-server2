@@ -2484,7 +2484,7 @@ class Entity {
         this.turrets.forEach(t => t.destroy());
         // Remove from the collision grid
         this.removeFromGrid();
-        this.isGhost = false;
+        this.isGhost = true;
     }    
     
     isDead() {
@@ -4762,35 +4762,88 @@ var maintainloop = (() => {
                 timer = 0;
                 let choice = [];
                 switch (wave) {
-                  
-          case 5:
+                         
+          case 19:
             setTimeout(() => closemode(), 1e3);
               
-            sockets.broadcast("BLUE HAS WON THE GAME!!!");
-              
-         
+            sockets.broadcast("RED HAS WON THE GAME!!!");
             break;
                   case 0:
-            choice = [[Class.elite_destroyer], 1, "castle", "nest"];  
+            choice = [[Class.elite_destroyer], 1, "a", "nest"];  
 
             break;
           case 1:
             choice = [[Class.palisade], 1, "castle", "nest"];
-                  sockets.broadcast("A wierd shaking....");
+                  
             break;
           case 2:
-            choice = [[Class.elite_destroyer, Class.elite_sprayer, Class.elite_gunner], 2, "castle", "nest"];
+            choice = [[ Class.elite_sprayer], 1, "a", "nest"];
                   
             break;
           case 3:
-            choice = [[Class.elite_destroyer, Class.elite_sprayer, Class.elite_gunner, Class.palisade], 4, "castle", "nest"];
+            choice = [[Class.elite_gunner,], 1, "a", "nest"];
+                           
+            break;
+          case 4: 
+            choice = [[Class.elite_battelship], 1, "a", "nest"];
+                    
+             break;       
+             case 5:
+            choice = [[Class.elite_KILLER, Class.elite_destroyer], 2, "a", "nest"];
+            
+                    break;  
+          case 6:
+            choice = [[Class.EMKD_1], 1, "a", "nest"];
+                  sockets.broadcast("A strange trembling an a wierd shaking...");
+            break;
+                  case 7:
+            choice = [[Class.summoner_ai, Class.EMKD_1], 2, "a", "nest"];
+                   sockets.broadcast("A strange trembling an a wierd shaking...");
+            break;
+                  case 8:
+            choice = [[Class.EMKD_2], 1, "a", "nest"];
+                   sockets.broadcast("A strange trembling an a wierd shaking...");
+            break;
+                  case 9:
+            choice = [[Class.EMKD_2, Class.elite_battelship], 1, "a", "nest"];
                   
             break;
-          case 4:
-                   sockets.broadcast("final WAVE !!!!!");
-            choice = [[Class.palisade, Class.elite_destroyer, Class.elite_sprayer,Class.elite_destroyer, Class.palisade,Class.elite_gunner, Class.elite_destroyer], 7, "castle", "nest"];
-     
-      
+                  case 10:
+            choice = [[Class.EMKD_3], 1, "a", "nest"];
+                   sockets.broadcast("A strange trembling an a wierd shaking...");
+            break;
+                  case 11:
+            choice = [[Class.palisade], 1, "castle", "nest"];
+                   sockets.broadcast("A strange trembling..");
+            break;
+                  case 12:
+            choice = [[Class.fallenoverlord_ai], 1, "a", "nest"];
+                   sockets.broadcast("An fallen overlod spawned!"); 
+            break;
+                  case 13:
+            choice = [[Class.fallen_booster_ai], 1, "a", "nest"];
+                    sockets.broadcast("An fallen booster spawned");
+            break;
+                  case 14:
+            choice = [[Class.fallen_ac], 1, "a", "nest"];
+                    sockets.broadcast("An fallen Arena Closer spawned");
+            break;
+                  case 15:
+            choice = [[Class.Celestial_freja], 1, "a", "nest"];
+                 
+            break;
+                  case 16:
+            choice = [[Class.Celestial_paladin], 1, "a", "nest"];
+                    
+            break;
+                  case 17:
+            choice = [[Class.elite_octo], 1, "a", "nest"];
+            
+            break;
+          case 18:
+                  
+            choice = [[Class.palisade, Class.elite_destroyer, Class.EMKD_1, Class.elite_battelship, Class.elite_sprayer,Class.elite_destroyer, Class.palisade,Class.elite_gunner, Class.elite_destroyer], 9, "castle", "nest"];
+                      
                 }
                 boss.prepareToSpawn(...choice);
                 setTimeout(boss.spawn, 3000);
