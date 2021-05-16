@@ -73,6 +73,7 @@ const room = {
     room.findType('bas4');
     room.findType('roid');
     room.findType('rock');
+  room.findType("bad1");
     room.nestFoodAmount = 1.5 * Math.sqrt(room.nest.length) / room.xgrid / room.ygrid;
     room.random = () => {
         return {
@@ -2317,7 +2318,7 @@ class Entity {
                 (this.team !== -1 && room.isIn('bas1', loc)) ||
                 (this.team !== -2 && room.isIn('bas2', loc)) ||
                 (this.team !== -3 && room.isIn('bas3', loc)) ||
-                (this.team !== -4 && room.isIn('bas4', loc))
+                (this.team !== -1 && room.isIn('bad1', loc))
             ) { this.kill(); }
         }
     }
@@ -4809,6 +4810,21 @@ var maintainloop = (() => {
                 o.define(type);
         }
     };
+  let teamWon = team => {
+    setTimeout(() => sockets.broadcast(team + " HAS WON THE GAME!"), 1e3);
+    setTimeout(() => closemode(), 5e3);
+  };
+  let createDom = (loc, team) => {
+    let o = new Entity(loc);
+    o.define(Class.fallen_ac);
+    o.team = -team;
+    o.color = [10, 11, 12, 15][team - 1];
+    o.ondeath = () => {
+      teamWon(["BOSSES", "BLUE"][team - 1]);
+
+    };
+    //room.lifetime.push(o)
+  };
        //The NPC function
     let makenpcs = (() => {
          //Make base protectors if needed.
@@ -4821,9 +4837,16 @@ var maintainloop = (() => {
                     o.color = [10, 11, 12, ,15][team-1];
             };
             for (let i=1; i<5; i++) {
-                room['bas' + i].forEach((loc) => { f(loc, i); }); 
+                room["bas" + i].forEach(loc) => {
+                  f(loc, i); }); 
+          });
+    }
+    for (let i = 1; i < 5; i++) {
+      room["bad" + i].forEach(loc => {
+        createDom(loc, i);
+      });
+     }
           
-          } 
       
         // Return the spawning function
         let bots = [];
