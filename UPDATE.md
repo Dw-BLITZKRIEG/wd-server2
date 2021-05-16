@@ -1,5 +1,9 @@
 # UPDATE AND CHANGELOOK
 ----------------------------------------------------------------------------------------------
+16.05.2021
+
+* added hivemind upgrades from basic and too: twin mind, pound mind, machmind, and tri-angle mind
+______________________________________________________________________________
 14.05.2021
 
 * i found out how to spawn arena closer´s and close the server
