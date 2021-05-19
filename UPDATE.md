@@ -2,6 +2,12 @@
 ----------------------------------------------------------------------------------------------
 19.05.2021
 
+* deletet maus viii 
+* deletet wirbel wind 
+* deletet LANDKREUZER P1000 RATTE cuz they crashes the server };(
+_____________________________________________________________________________
+19.05.2021
+
 * added maus viii upgrades from annihalatior
 * added wirbel wind upgrades from gunner
 * added LANDKREUZER P1000 RATTE upgrades from developer
