@@ -2522,6 +2522,12 @@ let spawnarenacloser2 = (loc, mode, type) => {
   o.color = [35][-mode];
 };
 
+let spawnarenacloser3 = (loc, mode, type) => {
+  let o = new Entity(loc);
+  o.define(type);
+  o.team = mode || -100;
+  o.color = [35][-mode];
+};
 function threeHourRestart() {
   restart3hour();
 }
@@ -2597,6 +2603,17 @@ function closemode() {
           -0,
           ran.choose(
             [Class.arenacloser2, Class.arenacloser2, Class.arenacloser2],
+            1
+          )
+        );
+      });
+    if (room.gameMode === "tdm")
+      room["nest"].forEach(loc => {
+        spawnarenacloser2(
+          loc,
+          -0,
+          ran.choose(
+            [Class.arenacloser3, Class.arenacloser3, Class.arenacloser3],
             1
           )
         );
@@ -4757,7 +4774,7 @@ var maintainloop = (() => {
             };
         })();
         return census => {
-            if (timer > 3500 && ran.dice(1500 - timer)) {
+            if (timer > 35 && ran.dice(15 - timer)) {
                 util.log('[SPAWN] Preparing to spawn...');
                 timer = 0;
                 let choice = [];
