@@ -2528,6 +2528,13 @@ let spawnarenacloser3 = (loc, mode, type) => {
   o.team = mode || -100;
   o.color = [35][-mode];
 };
+
+let spawnarenacloser4 = (loc, mode, type) => {
+  let o = new Entity(loc);
+  o.define(type);
+  o.team = mode || -100;
+  o.color = [35][-mode];
+};
 function threeHourRestart() {
   restart3hour();
 }
@@ -2540,7 +2547,18 @@ function restart3hour() {
     sockets.broadcast("ARENA CLOSED: NO PLAYERS MAY JOIN!");
     ArenaClosed();
     if (room.gameMode === "tdm")
-      room["nest"].forEach(loc => {
+      room["norm"].forEach(loc => {
+        spawnarenacloser(
+          loc,
+          -0,
+          ran.choose(
+            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
+            1
+          )
+        );
+      });
+    if (room.gameMode === "tdm")
+      room["norm"].forEach(loc => {
         spawnarenacloser(
           loc,
           -0,
@@ -2562,18 +2580,7 @@ function restart3hour() {
         );
       });
     if (room.gameMode === "tdm")
-      room["nest"].forEach(loc => {
-        spawnarenacloser(
-          loc,
-          -0,
-          ran.choose(
-            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
-            1
-          )
-        );
-      });
-    if (room.gameMode === "tdm")
-      room["nest"].forEach(loc => {
+      room["norm"].forEach(loc => {
         spawnarenacloser(
           loc,
           -0,
@@ -2608,7 +2615,7 @@ function closemode() {
         );
       });
     if (room.gameMode === "tdm")
-      room["nest"].forEach(loc => {
+      room["norm"].forEach(loc => {
         spawnarenacloser2(
           loc,
           -0,
@@ -2619,7 +2626,18 @@ function closemode() {
         );
       });
     if (room.gameMode === "tdm")
-      room["nest"].forEach(loc => {
+      room["norm"].forEach(loc => {
+        spawnarenacloser2(
+          loc,
+          -0,
+          ran.choose(
+            [Class.arenacloser4, Class.arenacloser4, Class.arenacloser],
+            1
+          )
+        );
+      });
+    if (room.gameMode === "tdm")
+      room["bas1"].forEach(loc => {
         spawnarenacloser(
           loc,
           -0,
