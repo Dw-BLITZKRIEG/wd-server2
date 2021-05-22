@@ -2636,39 +2636,6 @@ function closemode() {
           )
         );
       });
-    if (room.gameMode === "tdm")
-      room["bas1"].forEach(loc => {
-        spawnarenacloser(
-          loc,
-          -0,
-          ran.choose(
-            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
-            1
-          )
-        );
-      });
-    if (room.gameMode === "tdm")
-      room["nest"].forEach(loc => {
-        spawnarenacloser(
-          loc,
-          -0,
-          ran.choose(
-            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
-            1
-          )
-        );
-      });
-    if (room.gameMode === "tdm")
-      room["nest"].forEach(loc => {
-        spawnarenacloser(
-          loc,
-          -0,
-          ran.choose(
-            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
-            1
-          )
-        );
-      });
   }
 }
 
