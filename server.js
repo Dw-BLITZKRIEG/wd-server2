@@ -2546,24 +2546,14 @@ function restart3hour() {
   } else {
     sockets.broadcast("ARENA CLOSED: NO PLAYERS MAY JOIN!");
     ArenaClosed();
+    
     if (room.gameMode === "tdm")
       room["norm"].forEach(loc => {
         spawnarenacloser(
           loc,
           -0,
           ran.choose(
-            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
-            1
-          )
-        );
-      });
-    if (room.gameMode === "tdm")
-      room["norm"].forEach(loc => {
-        spawnarenacloser(
-          loc,
-          -0,
-          ran.choose(
-            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
+            [Class.arenacloser],
             1
           )
         );
