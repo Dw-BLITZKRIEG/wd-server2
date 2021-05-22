@@ -4794,7 +4794,7 @@ var maintainloop = (() => {
                     o.color = 17;
                     o.define(Class.bot);
                        let arrayOfClasses = [Class.spike, Class.stream, Class.overseer, Class.overlord, Class.weirdspike, Class.fighter, Class.minitrap,
-                                        Class.machinegunner, Class.penta, Class.octo, Class.uh, Class.jr_closer, Class.tri, Class.flank,
+                                        Class.machinegunner, Class.penta, Class.octo, Class.baby_fac, Class.jr_closer, Class.tri, Class.flank,
                                         Class.hybrid, Class.anni, Class.destroy, Class.booster, Class.mega_anni, Class.ninja, ]                  
                       let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
                     o.define(newClass);
@@ -4828,15 +4828,14 @@ var maintainloop = (() => {
             let a = { };
             switch (level) {
                 case 0: a = Class.egg; break;
-                case 0: a = Class.greensquare; break;
                 case 1: a = Class.square; break;
                 case 2: a = Class.triangle; break;
                 case 3: a = Class.pentagon; break;
                 case 4: a = Class.bigPentagon; break;
-                case 5: a = Class.hugePentagon; break;
-                  case 5: a = Class.greenpentagon; break;
-                  case 5: a = Class.greensqaure; break;
-                  case 5: a = Class.greentriangle; break;
+                case 8: a = Class.hugePentagon; break;
+                  case 6: a = Class.greenpentagon; break;
+                  case 5: a = Class.greensquare; break;
+                  case 7: a = Class.greentriangle; break;
                 default: throw('bad food level');
             }
             if (a !== {}) {
