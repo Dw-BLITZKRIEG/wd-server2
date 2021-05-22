@@ -2553,28 +2553,6 @@ function restart3hour() {
           loc,
           -0,
           ran.choose(
-            [Class.arenacloser],
-            1
-          )
-        );
-      });
-    if (room.gameMode === "tdm")
-      room["nest"].forEach(loc => {
-        spawnarenacloser(
-          loc,
-          -0,
-          ran.choose(
-            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
-            1
-          )
-        );
-      });
-    if (room.gameMode === "tdm")
-      room["norm"].forEach(loc => {
-        spawnarenacloser(
-          loc,
-          -0,
-          ran.choose(
             [Class.arenacloser, Class.arenacloser, Class.arenacloser],
             1
           )
@@ -2591,7 +2569,7 @@ function closemode() {
   if (loops < 10) {
     setTimeout(closemode, 1000);
   } else {
-    sockets.broadcast("ARENA CLOSED: NO PLAYERS MAY JOIN!");
+    sockets.broadcast("Arena Closed: No players can join");
     ArenaClosed();
     if (room.gameMode === "tdm")
       room["nest"].forEach(loc => {
