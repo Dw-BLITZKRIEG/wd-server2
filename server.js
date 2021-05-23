@@ -4770,8 +4770,30 @@ var maintainloop = (() => {
             choice = [[Class.palisade], 1, "castle", "nest"];
                   
             break;
+                    case 2:
+            choice = [[Class.summoner], 1, "a", "nest"];
+                  
+            break;case 3:
+            choice = [[Class.fallenoverlord_ai], 1, "a", "nest"];
+                  
+            break;case 4:
+            choice = [[Class.fallen_booster_ai], 1, "a", "nest"];
+                  
+            break;
+                    case 4:
+            choice = [[Class.fallen_ac], 1, "a", "nest"];
+                  
+            break;
+                    case 4:
+            choice = [[Class.elite_], 1, "a", "nest"];
+                  
+            break;
+                    case 4:
+            choice = [[Class.fallen_booster_ai], 1, "a", "nest"];
+                  
+            break;
                          
-          case 2:
+          case 5:
             setTimeout(() => closemode(), 1e3);
             break;      
                 }
