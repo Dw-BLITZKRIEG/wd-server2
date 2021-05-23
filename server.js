@@ -2514,6 +2514,7 @@ let spawnarenacloser = (loc, mode, type) => {
   o.team = mode || -100;
   o.color = [35][-mode];
 };
+
 function threeHourRestart() {
   restart3hour();
 }
@@ -2525,9 +2526,41 @@ function restart3hour() {
   } else {
     sockets.broadcast("ARENA CLOSED: NO PLAYERS MAY JOIN!");
     ArenaClosed();
-    
     if (room.gameMode === "tdm")
-      room["norm"].forEach(loc => {
+      room["nest"].forEach(loc => {
+        spawnarenacloser(
+          loc,
+          -0,
+          ran.choose(
+            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
+            1
+          )
+        );
+      });
+    if (room.gameMode === "tdm")
+      room["nest"].forEach(loc => {
+        spawnarenacloser(
+          loc,
+          -0,
+          ran.choose(
+            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
+            1
+          )
+        );
+      });
+    if (room.gameMode === "tdm")
+      room["nest"].forEach(loc => {
+        spawnarenacloser(
+          loc,
+          -0,
+          ran.choose(
+            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
+            1
+          )
+        );
+      });
+    if (room.gameMode === "tdm")
+      room["nest"].forEach(loc => {
         spawnarenacloser(
           loc,
           -0,
@@ -2548,7 +2581,7 @@ function closemode() {
   if (loops < 10) {
     setTimeout(closemode, 1000);
   } else {
-    sockets.broadcast("Arena Closed: No players can join");
+    sockets.broadcast("ARENA CLOSED: NO PLAYERS MAY JOIN!");
     ArenaClosed();
     if (room.gameMode === "tdm")
       room["nest"].forEach(loc => {
@@ -2562,7 +2595,7 @@ function closemode() {
         );
       });
     if (room.gameMode === "tdm")
-      room["norm"].forEach(loc => {
+      room["nest"].forEach(loc => {
         spawnarenacloser(
           loc,
           -0,
@@ -2573,7 +2606,18 @@ function closemode() {
         );
       });
     if (room.gameMode === "tdm")
-      room["norm"].forEach(loc => {
+      room["nest"].forEach(loc => {
+        spawnarenacloser(
+          loc,
+          -0,
+          ran.choose(
+            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
+            1
+          )
+        );
+      });
+    if (room.gameMode === "tdm")
+      room["nest"].forEach(loc => {
         spawnarenacloser(
           loc,
           -0,
@@ -4706,13 +4750,21 @@ var maintainloop = (() => {
             };
         })();
         return census => {
-            if (timer > 350 && ran.dice(150 - timer)) {
+            if (timer > 35 && ran.dice(15 - timer)) {
                 util.log('[SPAWN] Preparing to spawn...');
                 timer = 0;
                 let choice = [];
                 switch (wave) {
-                         
+                       case 0:
+            choice = [[Class.elite_destroyer], 1, "castle", "nest"];  
+
+            break;
           case 1:
+            choice = [[Class.palisade], 1, "castle", "nest"];
+                  
+            break;
+                         
+          case 2:
             setTimeout(() => closemode(), 1e3);
             break;      
                 }
