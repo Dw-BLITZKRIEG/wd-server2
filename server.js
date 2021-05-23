@@ -4789,13 +4789,13 @@ var maintainloop = (() => {
             spawnBosses(census);
             
             
-                if (bots.length < c.BOTS) {
+               if (bots.length < c.BOTS) {
                     let o = new Entity(room.random());
                     o.color = 17;
                     o.define(Class.bot);
-                       let arrayOfClasses = [Class.spike, Class.stream, Class.overseer, Class.overlord, Class.weirdspike, Class.fighter, Class.minitrap,
-                                        Class.machinegunner, Class.penta, Class.octo, Class.baby_fac, Class.jr_closer, Class.tri, Class.flank,
-                                        Class.hybrid, Class.anni, Class.destroy, Class.booster, Class.mega_anni, Class.ninja, ]                  
+                       let arrayOfClasses = [Class.spike, Class.stream, Class.overseer, Class.overlord, Class.weirdspike, Class.fighter, Class.minitrap, Class.knight, Class.spread_script1,
+                                        Class.machinegunner, Class.penta, Class.octo, Class.baby_fac, Class.jr_closer, Class.tri, Class.flank, Class.mach2,
+                                        Class.hybrid, Class.anni, Class.destroy, Class.booster, Class.mega_anni, Class.ninja, Class.RAIL ]                  
                       let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
                     o.define(newClass);
                 
