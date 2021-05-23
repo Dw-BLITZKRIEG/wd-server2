@@ -4757,7 +4757,7 @@ var maintainloop = (() => {
             };
         })();
         return census => {
-            if (timer > 35 && ran.dice(15 - timer)) {
+            if (timer > 3500 && ran.dice(1500 - timer)) {
                 util.log('[SPAWN] Preparing to spawn...');
                 timer = 0;
                 let choice = [];
@@ -4780,20 +4780,14 @@ var maintainloop = (() => {
             choice = [[Class.fallen_booster_ai], 1, "a", "nest"];
                   
             break;
-                    case 4:
-            choice = [[Class.fallen_ac], 1, "a", "nest"];
+                    case 5:
+            choice = [[Class.elite_gunner], 1, "a", "nest"];
                   
             break;
-                    case 4:
-            choice = [[Class.elite_], 1, "a", "nest"];
+                    case 6:
+            choice = [[Class.elite_sprayer], 1, "a", "nest"];
                   
-            break;
-                    case 4:
-            choice = [[Class.fallen_booster_ai], 1, "a", "nest"];
-                  
-            break;
-                         
-          case 5:
+            break;case 7:
             setTimeout(() => closemode(), 1e3);
             break;      
                 }
