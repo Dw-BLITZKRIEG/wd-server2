@@ -955,13 +955,16 @@ class Skill {
         this.caps[0] = thing[0];
         this.caps[1] = thing[1];
         this.caps[2] = thing[2];
-        this.caps[3] = thing[3];
+        this.caps[3] = thing[4];
         this.caps[4] = thing[4];
         this.caps[5] = thing[5];
         this.caps[6] = thing[6];
         this.caps[7] = thing[7];
         this.caps[8] = thing[8];
         this.caps[9] = thing[9];
+      this.caps[10] = thing[10];
+        this.caps[11] = thing[11];
+        this.caps[12] = thing[12];
         this.update();
     }
 
