@@ -4730,22 +4730,26 @@ var maintainloop = (() => {
                     o.name = names[i++];
             };
             return {
-                prepareToSpawn: (classArray, number, nameClass, typeOfLocation = 'norm') => {
-                    n = number;
-                    bois = classArray;
-                    loc = typeOfLocation;
-                    names = ran.chooseBossName(nameClass, number);
-                    i = 0;
-                    if (n === 1) {
-                        begin = 'A visitor is coming.';
-                        arrival = names[0] + ' has arrived.'; 
-                      
-                    } else {
+              prepareToSpawn: (
+          classArray,
+          number,
+          nameClass,
+          typeOfLocation = "nest"
+        ) => {
+          n = number;
+          bois = classArray;
+          loc = typeOfLocation;
+          names = ran.chooseBossName(nameClass, number);
+          i = 0;
+          if (n === 0) {
+            begin = "A visitor is coming.";
+            arrival = names[0] + " has arrived.";
+          } else {
             begin = "The Wave has started!";
             arrival = "";
             arrival += "Wave " + wave + " has Started.";
-                    }    
-                     wave += 1;
+          }
+          wave += 1;
                 },
                 spawn: () => {
                     sockets.broadcast(begin);
@@ -4764,19 +4768,17 @@ var maintainloop = (() => {
                 timer = 0;
                 let choice = [];
                 switch (wave) {
-                       case 0:
-            choice = [[Class.elite_destroyer], 1, "castle", "nest"];  
+                    case 0:
+            choice = [[Class.elite_gunner], 1, "castle", "nest"];
 
             break;
-                    case 1:
-            choice = [[Class.elite_destroyer], 1, "castle", "nest"];  
+          case 1:
+            choice = [[Class.palisade], 1, "castle", "nest"];
 
-            break;
-             
-                  
-            break;case 2:
+            break; case 2:
             setTimeout(() => closemode(), 1e3);
-            break;      
+            sockets.broadcast("BLUE HAS WON THE GAME!!!");
+            break;    
                 }
                 boss.prepareToSpawn(...choice);
                 setTimeout(boss.spawn, 3000);
