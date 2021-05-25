@@ -1,10 +1,5 @@
 # UPDATE AND CHANGELOOK
 ----------------------------------------------------------------------------------------------
-25.05.2021
-
-* added grenadir upgrades from builder re names nulser to trap-placer!
-* fixed class tree, now the game won´t crash if u prees T
-______________________________________________________________
 22.05.2021
 
 * added spectactor
