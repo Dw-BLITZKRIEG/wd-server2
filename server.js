@@ -2729,8 +2729,9 @@ var http = require('http'),
                 layer: e.layer,
                 statnames: e.settings.skillNames,
                 position: positionInfo,
-                upgrades: e.upgrades.map(r => ({ tier: r.tier, index: r.index }),
-                guns: e.guns.map(function(gun) { 
+                upgrades: e.upgrades.map(r => ({ tier: r.tier, index: r.index })),
+                guns: e.guns.map(function(gun) {
+                    return {
                         offset: rounder(gun.offset),
                         direction: rounder(gun.direction),
                         length: rounder(gun.length),
