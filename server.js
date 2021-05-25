@@ -4713,7 +4713,8 @@ var maintainloop = (() => {
         let timer = 0;
         let wave = 1;
         let boss = (() => {
-            let i = 0, 
+            let i = 0,
+                names = [],
                 bois = [Class.egg],
                 n = 0,
                 begin = 'yo some shit is about to move to a lower position',
@@ -4759,7 +4760,7 @@ var maintainloop = (() => {
             };
         })();
         return census => {
-            if (timer > 1 && ran.dice(7 - timer)) {
+            if (timer > 3500 && ran.dice(1500 - timer)) {
                 util.log('[SPAWN] Preparing to spawn...');
                 timer = 0;
                 let choice = [];
@@ -4769,11 +4770,27 @@ var maintainloop = (() => {
 
             break;
           case 1:
-            choice = [[Class.palisade], 1, "castle", "nest"]; 
-                        sockets.broadcast('1750s remaind till the game ends!');
-             
+            choice = [[Class.palisade], 1, "castle", "nest"];
                   
-            break;case 2:
+            break;
+                    case 2:
+            choice = [[Class.summoner], 1, "a", "nest"];
+                  
+            break;case 3:
+            choice = [[Class.fallenoverlord_ai], 1, "a", "nest"];
+                  
+            break;case 4:
+            choice = [[Class.fallen_booster_ai], 1, "a", "nest"];
+                  
+            break;
+                    case 5:
+            choice = [[Class.elite_gunner], 1, "a", "nest"];
+                  
+            break;
+                    case 6:
+            choice = [[Class.elite_sprayer], 1, "a", "nest"];
+                  
+            break;case 7:
             setTimeout(() => closemode(), 1e3);
             break;      
                 }
