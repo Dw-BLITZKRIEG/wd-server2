@@ -4713,8 +4713,7 @@ var maintainloop = (() => {
         let timer = 0;
         let wave = 1;
         let boss = (() => {
-            let i = 0,
-                names = [],
+            let i = 0, 
                 bois = [Class.egg],
                 n = 0,
                 begin = 'yo some shit is about to move to a lower position',
