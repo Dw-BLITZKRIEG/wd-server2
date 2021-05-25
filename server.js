@@ -4760,7 +4760,7 @@ var maintainloop = (() => {
             };
         })();
         return census => {
-            if (timer > 3500 && ran.dice(1500 - timer)) {
+            if (timer > 1750 && ran.dice(750 - timer)) {
                 util.log('[SPAWN] Preparing to spawn...');
                 timer = 0;
                 let choice = [];
@@ -4770,7 +4770,8 @@ var maintainloop = (() => {
 
             break;
           case 1:
-            choice = [[Class.palisade], 1, "castle", "nest"];
+            choice = [[Class.palisade], 1, "castle", "nest"]; 
+                        sockets.broadcast('1750s remaind till the game ends!');
              
                   
             break;case 2:
