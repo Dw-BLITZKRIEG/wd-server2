@@ -9,7 +9,7 @@
   "visibleListInterval": 1000,
   "gameSpeed": 1,
   "runSpeed": 1.5,
-  "maxHeartbeatInterval": 30000000000000000000000000,
+  "maxHeartbeatInterval": 300000,
   "verbose": true,
   "WIDTH": 2500,
   "HEIGHT": 2500,
