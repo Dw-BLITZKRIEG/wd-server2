@@ -4759,7 +4759,7 @@ var maintainloop = (() => {
             };
         })();
         return census => {
-            if (timer > 1750 && ran.dice(750 - timer)) {
+            if (timer > 1 && ran.dice(20 - timer)) {
                 util.log('[SPAWN] Preparing to spawn...');
                 timer = 0;
                 let choice = [];
@@ -4768,9 +4768,10 @@ var maintainloop = (() => {
             choice = [[Class.elite_destroyer], 1, "castle", "nest"];  
 
             break;
-          case 1:
-            choice = [[Class.palisade], 1, "castle", "nest"]; 
-                        sockets.broadcast('1750s remaind till the game ends!');
+                    case 1:
+            choice = [[Class.elite_destroyer], 1, "castle", "nest"];  
+
+            break;
              
                   
             break;case 2:
