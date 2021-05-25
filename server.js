@@ -4772,7 +4772,11 @@ var maintainloop = (() => {
           case 1:
             choice = [[Class.palisade], 1, "castle", "nest"];
                   
-            break;case 2:
+            break;
+                  case 2:
+            choice = [[Class.palisade], 1, "castle", "nest"];
+                  
+            break;case 3:
             setTimeout(() => closemode(), 1e3);
             break;      
                 }
