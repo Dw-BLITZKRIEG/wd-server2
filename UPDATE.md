@@ -1,5 +1,9 @@
 # UPDATE AND CHANGELOOK
 ----------------------------------------------------------------------------------------------
+26.05.2021
+
+* fixed class tree, now u can prees T to open it, before the patch the game crashed!
+________________________________________________________________________________________
 22.05.2021
 
 * added spectactor
