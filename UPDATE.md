@@ -1,5 +1,10 @@
 # UPDATE AND CHANGELOOK
 ----------------------------------------------------------------------------------------------
+27.05.2021
+
+* nerfed celesital enternal, so the freking server won´t have less 2fps?!
+________________________________________________________________________________________________
+
 26.05.2021
 
 * fixed class tree, now u can prees T to open it, before the patch the game crashed!
