@@ -4,11 +4,7 @@
  Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
  Everyone is permitted to copy and distribute verbatim copies
  of this license document, but changing it is not allowed.
- 
-                  
-                  
-                  REMIXING this project is not allowed without permissson
-                  if u so u HAVE to credit the orginal one!
+
 
                             Preamble
 
