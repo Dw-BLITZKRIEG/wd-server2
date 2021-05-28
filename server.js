@@ -483,7 +483,7 @@ class io_nearestDifferentMaster extends IO {
             if (!e.invuln) {
             if (e.master.master.team !== this.body.master.master.team) {
             if (e.master.master.team !== -101) {
-            if (e.type === 'tank' || e.type === 'crasher', 'crasher2' || (!this.body.aiSettings.shapefriend && e.type === 'food')) {
+            if (e.type === 'tank' || e.type === 'crasher', 'crusher' || (!this.body.aiSettings.shapefriend && e.type === 'food')) {
             if (Math.abs(e.x - m.x) < range && Math.abs(e.y - m.y) < range) {
             if (!this.body.aiSettings.blind || (Math.abs(e.x - mm.x) < range && Math.abs(e.y - mm.y) < range)) return e;
             } } } } } }
@@ -4797,6 +4797,17 @@ var maintainloop = (() => {
                 o.define(type);
         }
     };
+      let spawnCrusher = census => {
+        
+        if (ran.chance(1 -  0.5 * census.crusher / room.maxFood / room.nestFoodAmount)) {
+            let spot, i = 30;
+            do { spot = room.randomType('nest'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
+            let type = (ran.dice(50)) ? ran.choose([Class.crusher, Class.sentryGun, Class.sentrySwarm, Class.sentryTrap, Class.crusher]) : Class.crusher;
+            let o = new Entity(spot);
+                o.team= -100;
+                o.define(Class.crusher);
+        }
+    };
        //The NPC function
     let makenpcs = (() => {
          //Make base protectors if needed.
@@ -4829,6 +4840,7 @@ var maintainloop = (() => {
             }).filter(e => { return e; });    
             // Spawning
             spawnCrasher(census);
+            spawnCrusher(census);
             spawnBosses(census);
             
             
