@@ -4797,17 +4797,6 @@ var maintainloop = (() => {
                 o.define(type);
         }
     };
-      let spawnCrusher = census => {
-        
-        if (ran.chance(1 -  0.5 * census.crusher / room.maxFood / room.nestFoodAmount)) {
-            let spot, i = 30;
-            do { spot = room.randomType('nest'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
-            let type = (ran.dice(50)) ? ran.choose([Class.crusher, Class.sentryGun, Class.sentrySwarm, Class.sentryTrap, Class.crusher]) : Class.crusher;
-            let o = new Entity(spot);
-                o.team= -100;
-                o.define(Class.crusher);
-        }
-    };
        //The NPC function
     let makenpcs = (() => {
          //Make base protectors if needed.
@@ -4840,7 +4829,6 @@ var maintainloop = (() => {
             }).filter(e => { return e; });    
             // Spawning
             spawnCrasher(census);
-            spawnCrusher(census);
             spawnBosses(census);
             
             
