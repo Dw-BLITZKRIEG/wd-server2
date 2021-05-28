@@ -8,3 +8,5 @@ having remixed it without perm will be abusing! u can shre it and credit me and 
  how u wan.but if u don´t have perm to remix it this is not allowd only if creding me!
      
  As u saw i credit boom-v3 link to his server: <http://arras.io/#host=boom-v3.glitch.me>
+ 
+ [copying code also without perm will be absue too and will make u even bader at CODING! SO make it ur owne!]
