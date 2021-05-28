@@ -2420,7 +2420,7 @@ class Entity {
             });
             // Prepare it and clear the collision array.
             killText = killText.slice(0, -5);
-            if (killText === 'You have been kille') killText = 'You have died a stupid death';
+            if (killText === 'You have been killed') killText = 'You have died a stupid death';
             this.sendMessage(killText + '.');
             // If I'm the leader, broadcast it:
             if (this.id === room.topPlayerID) {
@@ -2534,7 +2534,7 @@ function restart3hour() {
   if (loops < 3600000) {
     setTimeout(restart3hour, 1000);
   } else {
-    sockets.broadcast("ARENA CLOSED: NO PLAYERS MAY JOIN!");
+    sockets.broadcast("Arena Closed: No players can join");
     ArenaClosed();
     if (room.gameMode === "tdm")
       room["nest"].forEach(loc => {
@@ -3214,7 +3214,8 @@ const sockets = (() => {
                     if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
                     // cheatingbois
                     if (player.body != null) { if (socket.key === process.env.SECRET) {
-                        player.body.sendMessage('AN dev joined the game!');
+                      
+                        
                         player.body.define(Class.testbed);
                     } }
                 }
