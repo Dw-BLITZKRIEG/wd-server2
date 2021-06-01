@@ -4987,8 +4987,8 @@ var maintainloop = (() => {
                 case 4: a = Class.bigPentagon; break;
                 case 5: a = Class.hugePentagon; break;
                 case 6: a = Class.greenpentagon; break;
-                case 6: a = Class.greentriangle; break;
-                case 6: a = Class.greensquare; break;
+                case 7: a = Class.greentriangle; break;
+                case 8: a = Class.greensquare; break;
                 default: throw('bad food level');
             }
             if (a !== {}) {
