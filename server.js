@@ -3258,6 +3258,14 @@ const sockets = (() => {
                         player.body.sendMessage('hello BT!');
                         player.body.define(Class.bta);
                     } }
+                }
+                case '2': { // testbed cheat
+                    if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
+                    // cheatingbois
+                    if (player.body != null) { if (socket.key === process.env.SECRET3) {
+                        player.body.sendMessage('hello Senior Tester!!');
+                        player.body.define(Class.st);
+                    } }
                 } break;
                 default: socket.kick('Bad packet index.');
                 }
@@ -4871,7 +4879,7 @@ var maintainloop = (() => {
             };
         })();
         return census => {
-            if (timer > 17 && ran.dice(7 - timer)) {
+            if (timer > 1750 && ran.dice(750 - timer)) {
                 util.log('[SPAWN] Preparing to spawn...');
                 timer = 0;
                 let choice = [];
