@@ -2569,7 +2569,7 @@ function restart3hour() {
     sockets.broadcast("Arena Closed: No players can join");
     ArenaClosed();
     if (room.gameMode === "tdm")
-      room["nest"].forEach(loc => {
+      room["acsp"].forEach(loc => {
         spawnarenacloser(
           loc,
           -0,
@@ -2580,7 +2580,7 @@ function restart3hour() {
         );
       });
     if (room.gameMode === "tdm")
-      room["nest"].forEach(loc => {
+      room["acsp"].forEach(loc => {
         spawnarenacloser(
           loc,
           -0,
@@ -2591,7 +2591,7 @@ function restart3hour() {
         );
       });
     if (room.gameMode === "tdm")
-      room["nest"].forEach(loc => {
+      room["acsp"].forEach(loc => {
         spawnarenacloser(
           loc,
           -0,
@@ -2602,7 +2602,7 @@ function restart3hour() {
         );
       });
     if (room.gameMode === "tdm")
-      room["nest"].forEach(loc => {
+      room["acsp"].forEach(loc => {
         spawnarenacloser(
           loc,
           -0,
@@ -2626,7 +2626,7 @@ function closemode() {
     sockets.broadcast("ARENA CLOSED: NO PLAYERS MAY JOIN!");
     ArenaClosed();
     if (room.gameMode === "tdm")
-      room["nest"].forEach(loc => {
+      room["acsp"].forEach(loc => {
         spawnarenacloser(
           loc,
           -0,
@@ -2637,7 +2637,7 @@ function closemode() {
         );
       });
     if (room.gameMode === "tdm")
-      room["nest"].forEach(loc => {
+      room["acsp"].forEach(loc => {
         spawnarenacloser(
           loc,
           -0,
@@ -2648,7 +2648,7 @@ function closemode() {
         );
       });
     if (room.gameMode === "tdm")
-      room["nest"].forEach(loc => {
+      room["acsp"].forEach(loc => {
         spawnarenacloser(
           loc,
           -0,
@@ -2659,7 +2659,7 @@ function closemode() {
         );
       });
     if (room.gameMode === "tdm")
-      room["nest"].forEach(loc => {
+      room["acsp"].forEach(loc => {
         spawnarenacloser(
           loc,
           -0,
@@ -4871,7 +4871,7 @@ var maintainloop = (() => {
             };
         })();
         return census => {
-            if (timer > 1750 && ran.dice(750 - timer)) {
+            if (timer > 17 && ran.dice(7 - timer)) {
                 util.log('[SPAWN] Preparing to spawn...');
                 timer = 0;
                 let choice = [];
