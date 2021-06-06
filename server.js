@@ -71,6 +71,10 @@ const room = {
     room.findType('bas2');
     room.findType('bas3');
     room.findType('bas4');
+    room.findType('bad1');
+    room.findType('bad2');
+    room.findType('bad3');
+    room.findType('bad4');
     room.findType('roid');
     room.findType('rock');
     room.findType('acsp');
@@ -4921,14 +4925,24 @@ var maintainloop = (() => {
          //Make base protectors if needed.
             let f = (loc, team) => { 
                 let o = new Entity(loc)
-                let arrayOfClasses = [Class.dominator01, Class.dominator02, Class.dominator03]                  
-                      let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
-                  o.define(newClass);
+                  o.define(exports);
                     o.team = -team;
                     o.color = [10, 11, 12, ,15][team-1];
             };
             for (let i=1; i<5; i++) {
                 room['bas' + i].forEach((loc) => { f(loc, i); }); 
+          
+          }  
+      let e = (loc, team) => { 
+                let o = new Entity(loc)
+                let arrayOfClasses = [Class.basic, Class.AC, Class.basic]                  
+                      let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
+                  o.define(newClass);
+                    o.team = -100;
+                    o.color = [3][team-1];
+            };
+            for (let i=1; i<5; i++) {
+                room['bad' + i].forEach((loc) => { f(loc, i); }); 
           
           } 
       
