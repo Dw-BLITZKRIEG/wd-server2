@@ -2543,13 +2543,6 @@ let spawnarenacloser = (loc, mode, type) => {
   o.color = [35][-mode];
 };
 
-let spawnarenacloser3 = (loc, mode, type) => {
-  let o = new Entity(loc);
-  o.define(type);
-  o.team = mode || -100;
-  o.color = [35][-mode];
-};
-
 let spawnarenaclosed = (loc, mode, type) => {
   let o = new Entity(loc);
   o.define(type);
@@ -2660,7 +2653,7 @@ function closemode() {
           loc,
           -0,
           ran.choose(
-            [Class.arenacloser3, Class.arenacloser, Class.arenacloser],
+            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
             1
           )
         );
@@ -4886,22 +4879,22 @@ var maintainloop = (() => {
             };
         })();
         return census => {
-            if (timer > 17 && ran.dice(7 - timer)) {
+            if (timer > 1750 && ran.dice(750 - timer)) {
                 util.log('[SPAWN] Preparing to spawn...');
                 timer = 0;
                 let choice = [];
                 switch (wave) {
-                       case 0:
-            choice = [[Class.elite_destroyer], 1, "castle", "nest"];  
+          case 0:
+            choice = [[Class.elite_destroyer], 1, "castle", "nest"];
 
             break;
-          case 1:
+          case 2:
             choice = [[Class.palisade], 1, "castle", "nest"];
-                  
-            break;
-                  case 2:
+
+          case 1:
             setTimeout(() => closemode(), 1e3);
-            break;      
+            sockets.broadcast("BLUE HAS WON THE GAME!!!");
+            break;     
                 }
                 boss.prepareToSpawn(...choice);
                 setTimeout(boss.spawn, 3000);
