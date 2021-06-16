@@ -4949,11 +4949,42 @@ var maintainloop = (() => {
                   o.define(newClass);
                     o.team = -team;
                     o.color = [10, 11, 12, ,15][team-1];
+              o.ondeath = () => {
+          createDom2(
+            loc,
+            -2,
+            ran.choose([Class.dominator01, Class.dominator02, Class.dominator03])
             };
             for (let i=1; i<5; i++) {
                 room['bas' + i].forEach((loc) => { f(loc, i); }); 
           
           }
+      let createDom2 = (loc, mode, type) => {
+        let o = new Entity(loc);
+        o.define(type);
+        o.team = mode || -0;
+        o.color = [3, 10, 11, 12, 15][-mode];
+        o.ondeath = () => {
+          createDom(
+            loc,
+            -1,
+            ran.choose([Class.dominator01, Class.dominator02, Class.dominator03])
+          );
+        };
+      };
+      let createDom = (loc, mode, type) => {
+        let o = new Entity(loc);
+        o.define(type);
+        o.team = mode || -0;
+        o.color = [3, 10, 11, 12, 15][-mode];
+        o.ondeath = () => {
+          createDom2(
+            loc,
+            -2,
+            ran.choose([Class.dominator01, Class.dominator02, Class.dominator03])
+          );
+        };
+      };
       
         // Return the spawning function
         let bots = [];
