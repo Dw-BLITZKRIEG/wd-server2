@@ -2385,19 +2385,6 @@ class Entity {
 
         // Check for death
     if (this.isDead()) {
-       if (this.label == 'Egg Sanctuary')
-                {
-                    sockets.broadcast("The Egg Sanctuary seems to have left something in it's demise")
-                    this.ondeath = () => {
-                    setTimeout (() => {
-                    sockets.broadcast("An EK-1 has spawned to avenge The Egg Sanctuary!")
-                    let type =  Class.EMKD_1;
-                    let o = new Entity(this);
-                    o.define(type);
-                    o.team = -100
-                    },2500)
-                }
-                }
             // Initalize message arrays
             let killers = [], killTools = [], notJustFood = false;
             // If I'm a tank, call me a nameless player
@@ -2525,13 +2512,15 @@ class Entity {
         this.turrets.forEach(t => t.destroy());
         // Remove from the collision grid
         this.removeFromGrid();
-        this.isGhost = true;
+        this.isGhost = false;
     }    
     
     isDead() {
         return this.health.amount <= 0; 
     }
 }
+
+let playersAlive = 0;
 function closeArena() {
   ArenaClosed();
 }
@@ -2542,6 +2531,14 @@ function ArenaClosed() {
   if (loops < 31) {
     setTimeout(ArenaClosed, 2000);
   } else {
+    if (closemode == true && playersAlive == 0) {
+                    setTimeout(() => {
+                      console.log("Closing");
+                      sockets.broadcast("Closing");
+
+                      process.exit();
+                    }, 3000);
+                  }
     sockets.broadcast("Closing!");
 
     process.exit();
@@ -4927,10 +4924,11 @@ var maintainloop = (() => {
             choice = [[Class.elite_destroyer], 1, "castle", "nest"];
 
             break;
-          case 3:
-            choice = [[Class.palisade], 1, "castle", "nest"];
-
           case 2:
+            choice = [[Class.palisade], 1, "castle", "nest"];
+            break; 
+
+          case 1:
             setTimeout(() => closemode(), 1e3);
             sockets.broadcast("BLUE HAS WON THE GAME!!!");
             break;     
