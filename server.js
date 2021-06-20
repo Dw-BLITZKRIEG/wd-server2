@@ -2384,7 +2384,7 @@ class Entity {
         this.damageRecieved = 0;
 
         // Check for death
-    if (this.isDead()) {
+        if (this.isDead()) {
             // Initalize message arrays
             let killers = [], killTools = [], notJustFood = false;
             // If I'm a tank, call me a nameless player
@@ -2512,7 +2512,7 @@ class Entity {
         this.turrets.forEach(t => t.destroy());
         // Remove from the collision grid
         this.removeFromGrid();
-        this.isGhost = false;
+        this.isGhost = true;
     }    
     
     isDead() {
@@ -4916,7 +4916,6 @@ var maintainloop = (() => {
             break;
           case 2:
             choice = [[Class.palisade], 1, "castle", "nest"];
-            break; 
 
           case 1:
             setTimeout(() => closemode(), 1e3);
