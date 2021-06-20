@@ -2384,7 +2384,21 @@ class Entity {
         this.damageRecieved = 0;
 
         // Check for death
-        if (this.isDead()) {
+    if (this.isDead()) {
+       if (this.label == 'dominator')
+                {
+                    sockets.broadcast("An dominator has been Killed")
+                    this.ondeath = () => {
+                    setTimeout (() => {
+                    sockets.broadcast("the Team wich dominators is dead has lost the game")
+                    let type =  Class.EMKD_1;
+                    let o = new Entity(this);
+                    o.define(type);
+                    o.team = -100
+                      closemode(), 1e3
+                    },2500)
+                }
+                }
             // Initalize message arrays
             let killers = [], killTools = [], notJustFood = false;
             // If I'm a tank, call me a nameless player
