@@ -2519,8 +2519,6 @@ class Entity {
         return this.health.amount <= 0; 
     }
 }
-
-let playersAlive = 0;
 function closeArena() {
   ArenaClosed();
 }
@@ -2531,14 +2529,6 @@ function ArenaClosed() {
   if (loops < 31) {
     setTimeout(ArenaClosed, 2000);
   } else {
-    if (closemode == true && playersAlive == 0) {
-                    setTimeout(() => {
-                      console.log("Closing");
-                      sockets.broadcast("Closing");
-
-                      process.exit();
-                    }, 3000);
-                  }
     sockets.broadcast("Closing!");
 
     process.exit();
