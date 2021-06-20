@@ -2387,15 +2387,15 @@ class Entity {
     if (this.isDead()) {
        if (this.label == 'dominator')
                 {
-                    sockets.broadcast("An dominator has been Killed")
+                    sockets.broadcast("The Egg Sanctuary seems to have left something in it's demise")
                     this.ondeath = () => {
+                   setTimeout(() => closemode(), 1e3);
                     setTimeout (() => {
-                    sockets.broadcast("the Team wich dominators is dead has lost the game")
-                    let type =  Class.EMKD_1;
+                    sockets.broadcast("An EK-1 has spawned to avenge The Egg Sanctuary!")
+                    let type =  Class.BK_1;
                     let o = new Entity(this);
                     o.define(type);
                     o.team = -100
-                      closemode(), 1e3
                     },2500)
                 }
                 }
