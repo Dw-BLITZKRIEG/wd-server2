@@ -488,6 +488,15 @@ class io_nearestDifferentMaster extends IO {
             if (Math.abs(e.x - m.x) < range && Math.abs(e.y - m.y) < range) {
             if (!this.body.aiSettings.blind || (Math.abs(e.x - mm.x) < range && Math.abs(e.y - mm.y) < range)) return e;
             } } } } } }
+            // Only look at those within our view, and our parent's view, not dead, not our kind, not a bullet/trap/block etc
+            if (e.health.amount > 0) {
+            if (!e.invuln) {
+            if (e.master.master.team !== this.body.master.master.team) {
+            if (e.master.master.team !== -101) {
+            if (e.type === 'tank' || e.type === 'crusher' || (!this.body.aiSettings.shapefriend && e.type === 'food')) {
+            if (Math.abs(e.x - m.x) < range && Math.abs(e.y - m.y) < range) {
+            if (!this.body.aiSettings.blind || (Math.abs(e.x - mm.x) < range && Math.abs(e.y - mm.y) < range)) return e;
+            } } } } } }
         }).filter((e) => { return e; });
         
         if (!out.length) return [];
@@ -2098,6 +2107,7 @@ class Entity {
                     (this.type === 'food') ? 10 : 
                     (this.type === 'tank') ? 5 :
                     (this.type === 'crasher') ? 1 :
+                    (this.type === 'crusher') ? 1 :
                     0,
             color: this.color,
             name: this.name,
@@ -2425,6 +2435,10 @@ class Entity {
             if (notJustFood) {
                 killers.forEach(instance => {
                     if (instance.master.type !== 'food' && instance.master.type !== 'crasher') {
+                        killText += (instance.name == '') ? (killText == '') ? 'An unnamed player' : 'an unnamed player' : instance.name;
+                        killText += ' and ';
+                    }
+                    if (instance.master.type !== 'food' && instance.master.type !== 'crusher') {
                         killText += (instance.name == '') ? (killText == '') ? 'An unnamed player' : 'an unnamed player' : instance.name;
                         killText += ' and ';
                     }
@@ -4673,6 +4687,9 @@ var gameloop = (() => {
             if ((instance.type === 'crasher' && other.type === 'food') || (other.type === 'crasher' && instance.type === 'food')) {
                 firmcollide(instance, other);
             } else
+            if ((instance.type === 'crusher' && other.type === 'food') || (other.type === 'crasher' && instance.type === 'food')) {
+                firmcollide(instance, other);
+            } else
             // Otherwise, collide normally if they're from different teams
             if (instance.team !== other.team) {
                 advancedcollide(instance, other, true, true);
@@ -4939,7 +4956,7 @@ var maintainloop = (() => {
                 o.define(type);
         }
     };
-    let spawnCrasher2 = census => {
+    let spawnCrusher = census => {
         
         if (ran.chance(1 -  0.5 * census.crasher2 / room.maxFood / room.nestFoodAmount)) {
             let spot, i = 30;
@@ -4971,7 +4988,7 @@ var maintainloop = (() => {
         return () => {
             let census = {
                 crasher: 0,
-                crasher2: 0,
+                crusher: 0,
                 miniboss: 0,
                 tank: 0,
             };    
@@ -4983,7 +5000,7 @@ var maintainloop = (() => {
             }).filter(e => { return e; });    
             // Spawning
             spawnCrasher(census);
-            spawnCrasher2(census);
+            spawnCrusher(census);
             spawnBosses(census);
             
             
