@@ -2395,6 +2395,20 @@ class Entity {
 
         // Check for death
         if (this.isDead()) {
+       if (this.label == 'dominator1')
+                {
+                    sockets.broadcast("An contested dominator has been captured!")
+                    this.ondeath = () => {
+                    setTimeout (() => {
+            setTimeout(() => closemode(), 1e3);
+                    sockets.broadcast("whos team contested dominator has been captured LOST!")
+                    let type =  Class.dominator01;
+                    let o = new Entity(this);
+                    o.define(type);
+                    o.team = -100
+                    },2500)
+                }
+                }
             // Initalize message arrays
             let killers = [], killTools = [], notJustFood = false;
             // If I'm a tank, call me a nameless player
@@ -4980,16 +4994,16 @@ var maintainloop = (() => {
               o.ondeath = () => {
                     setTimeout (() => {
                     sockets.broadcast("An dominator is being contested")
-                    let type =  Class.dominator01;
-                    let o = new Entity(this);
-                    o.define(type);
+            
+                    o.define(Class.dominator011);
                     o.team = -100;
+                    o.color = 3;  
                       
             for (let i=1; i<5; i++)
-            {
-                room['bas' + i].forEach((loc) => { f(loc, i); }); 
+      {
+                room['bas' + i].forEach((loc) => { f(loc, i); }); }
                     },2500)
-                }
+                };
                     o.color = [10, 11, 12, ,15][team-1];
             };
             for (let i=1; i<5; i++) {
