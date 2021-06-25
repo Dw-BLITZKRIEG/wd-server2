@@ -2402,10 +2402,12 @@ class Entity {
                     setTimeout (() => {
             setTimeout(() => closemode(), 1e3);
                     sockets.broadcast("whos team contested dominator has been captured LOST!")
+                    sockets.broadcast("the team who has 3 out of 3 doms WON!")
                     let type =  Class.dominator01;
                     let o = new Entity(this);
                     o.define(type);
-                    o.team = -100
+                    o.team = -1
+                    o.color = 1;  
                     },2500)
                 }
                 }
@@ -5001,7 +5003,7 @@ var maintainloop = (() => {
                       
             for (let i=1; i<5; i++)
       {
-                room['bas' + i].forEach((loc) => { f(loc, i); }); }
+                room['bas' + i].forEach((loc) => { a(loc, i); }); }
                     },2500)
                 };
                     o.color = [10, 11, 12, ,15][team-1];
@@ -5010,6 +5012,12 @@ var maintainloop = (() => {
                 room['bas' + i].forEach((loc) => { f(loc, i); }); 
           
           }
+      let a = (loc, team) => { 
+                let o = new Entity(loc)
+                  o.define(Class.dominator011);
+                    o.team = -100;
+                    o.color = 3;
+      };
       
         // Return the spawning function
         let bots = [];
