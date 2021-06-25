@@ -2527,6 +2527,7 @@ class Entity {
         // Remove from the collision grid
         this.removeFromGrid();
         this.isGhost = true;
+    if (this.ondeath) this.ondeath();
     }    
     
     isDead() {
@@ -4976,6 +4977,19 @@ var maintainloop = (() => {
                       let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
                   o.define(newClass);
                     o.team = -team;
+              o.ondeath = () => {
+                    setTimeout (() => {
+                    sockets.broadcast("An dominator is being contested")
+                    let type =  Class.dominator01;
+                    let o = new Entity(this);
+                    o.define(type);
+                    o.team = -100;
+                      
+            for (let i=1; i<5; i++)
+            {
+                room['bas' + i].forEach((loc) => { f(loc, i); }); 
+                    },2500)
+                }
                     o.color = [10, 11, 12, ,15][team-1];
             };
             for (let i=1; i<5; i++) {
