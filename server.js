@@ -5000,10 +5000,10 @@ var maintainloop = (() => {
                     o.define(Class.dominator011);
                     o.team = -100;
                     o.color = 3;  
-                      
-            for (let i=1; i<5; i++)
-      {
-                room['bas' + i].forEach((loc) => { a(loc, i); }); }
+            for (let i=1; i<5; i++) {
+                room['bas' + i].forEach((loc) => { a(loc, i); }); 
+          
+          };
                     },2500)
                 };
                     o.color = [10, 11, 12, ,15][team-1];
