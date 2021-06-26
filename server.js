@@ -2407,23 +2407,20 @@ class Entity {
                     let o = new Entity(this);
                     o.define(type);
                     o.team = -1
-                    o.color = 1;  
+                    o.color = 10;  
                     },2500)
                 }
                 }
        if (this.label == 'dominator')
                 {
-                    sockets.broadcast("An contested dominator has been captured!")
+                    sockets.broadcast("An Dominator is being contested")
                     this.ondeath = () => {
                     setTimeout (() => {
-            setTimeout(() => closemode(), 1e3);
-                    sockets.broadcast("whos team contested dominator has been captured LOST!")
-                    sockets.broadcast("the team who has 3 out of 3 doms WON!")
-                    let type =  Class.dominator01;
+                    let type =  Class.dominator011;
                     let o = new Entity(this);
                     o.define(type);
-                    o.team = -1
-                    o.color = 1;  
+                    o.team = -100
+                    o.color = 3;  
                     },2500)
                 }
                 }
