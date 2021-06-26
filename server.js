@@ -2411,6 +2411,22 @@ class Entity {
                     },2500)
                 }
                 }
+       if (this.label == 'dominator')
+                {
+                    sockets.broadcast("An contested dominator has been captured!")
+                    this.ondeath = () => {
+                    setTimeout (() => {
+            setTimeout(() => closemode(), 1e3);
+                    sockets.broadcast("whos team contested dominator has been captured LOST!")
+                    sockets.broadcast("the team who has 3 out of 3 doms WON!")
+                    let type =  Class.dominator01;
+                    let o = new Entity(this);
+                    o.define(type);
+                    o.team = -1
+                    o.color = 1;  
+                    },2500)
+                }
+                }
             // Initalize message arrays
             let killers = [], killTools = [], notJustFood = false;
             // If I'm a tank, call me a nameless player
@@ -4993,19 +5009,6 @@ var maintainloop = (() => {
                       let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
                   o.define(newClass);
                     o.team = -team;
-              o.ondeath = () => {
-                    setTimeout (() => {
-                    sockets.broadcast("An dominator is being contested")
-            
-                    o.define(Class.dominator011);
-                    o.team = -100;
-                    o.color = 3;  
-            for (let i=1; i<5; i++) {
-                room['bas' + i].forEach((loc) => { a(loc, i); }); 
-          
-          };
-                    },2500)
-                };
                     o.color = [10, 11, 12, ,15][team-1];
             };
             for (let i=1; i<5; i++) {
