@@ -77,6 +77,10 @@ const room = {
     room.findType('bap4');
     room.findType('roid');
     room.findType('rock');
+for (let it = 1; it < 10; it++){
+	room.findType('dom' + it);
+}
+
     room.findType('acsp');
     room.nestFoodAmount = 1.5 * Math.sqrt(room.nest.length) / room.xgrid / room.ygrid;
     room.random = () => {
@@ -1650,6 +1654,7 @@ class Entity {
         this.children = [];
         // Define it
         this.SIZE = 1;
+      this.DOMLOC = null;
         this.define(Class.genericEntity);
         // Initalize physics and collision
         this.maxSpeed = 0;
@@ -2399,35 +2404,6 @@ class Entity {
 
         // Check for death
         if (this.isDead()) {
-       if (this.label == 'dominator1')
-                {
-                    sockets.broadcast("An contested dominator has been captured!")
-                    this.ondeath = () => {
-                    setTimeout (() => {
-            setTimeout(() => closemode(), 1e3);
-                    sockets.broadcast("whos team contested dominator has been captured LOST!")
-                    sockets.broadcast("the team who has 3 out of 3 doms WON!")
-                    let type =  Class.dominator01;
-                    let o = new Entity(this);
-                    o.define(type);
-                    o.team = -1
-                    o.color = 10;  
-                    },2500)
-                }
-                }
-       if (this.label == 'dominator')
-                {
-                    sockets.broadcast("An Dominator is being contested")
-                    this.ondeath = () => {
-                    setTimeout (() => {
-                    let type =  Class.dominator011;
-                    let o = new Entity(this);
-                    o.define(type);
-                    o.team = -100
-                    o.color = 3;  
-                    },2500)
-                }
-                }
             // Initalize message arrays
             let killers = [], killTools = [], notJustFood = false;
             // If I'm a tank, call me a nameless player
@@ -2476,6 +2452,9 @@ class Entity {
                         killText += ' and ';
                     }
                     // Only if we give messages
+ if(instance.master.type !== "dominator"){
+instance.sendMessage}('You killed ' + name + ((killers.length > 1) ? ' (with some help).' : '.'));
+
                     if (dothISendAText) { 
                         instance.sendMessage('You killed ' + name + ((killers.length > 1) ? ' (with some help).' : '.')); 
                     }
@@ -5006,7 +4985,7 @@ var maintainloop = (() => {
          //Make base protectors if needed.
             let f = (loc, team) => { 
                 let o = new Entity(loc) 
-                let arrayOfClasses = [Class.dominator01, Class.dominator02, Class.dominator03, Class.dominator04]                  
+                let arrayOfClasses = [Class.base_drone]                  
                       let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
                   o.define(newClass);
                     o.team = -team;
@@ -5016,12 +4995,185 @@ var maintainloop = (() => {
                 room['bas' + i].forEach((loc) => { f(loc, i); }); 
           
           }
-      let a = (loc, team) => { 
-                let o = new Entity(loc)
-                  o.define(Class.dominator011);
-                    o.team = -100;
-                    o.color = 3;
-      };
+      let closearenaColor = 12;
+var domTeamB = 0,
+domTeamG = 0,
+domTeamR = 0,
+closed_once= false,
+domTeamP = 0,
+ArenaClosed = false;
+ 
+let k = (loc) => {
+  let o = new Entity(loc);
+  let choose = ran.choose([
+    Class.dominator01,
+    Class.dominator02,
+    Class.dominator03
+  ]); // choose the dominator
+  o.define(choose);
+  o.team = -100; // Makes it spawn yellow
+  o.color = 3; // Makes it yellow
+  o.SIZE = 100;
+  o.DOMLOC = i;
+  o.ondeath = () => {
+    // Check the killers team for being which team
+    let killers = [];
+    for (let instance of o.collisionArray)
+      if (instance.team >= -4 && instance.team <= -1)
+        killers.push(instance.team);
+    let pwned = killers.length ? ran.choose(killers) : 0;
+ 
+    let n = new Entity(loc);
+    n.define(choose);
+    let team = pwned ? (pwned = pwned) : (pwned = 0);
+    n.team = team || -100;
+    n.SIZE = 100;
+    if (pwned >= -4 || pwned <= -1) {
+      if (pwned == -1) {
+        sockets.broadcast(
+          "The " + c.D_NAMES[o.DOMLOC-1] + " Dominator is now controlled by BLUE",
+          closearenaColor
+        );
+        domTeamB++;
+        console.log(
+          "A Dominator controlled by blue! Blues Dominators count: " +
+            domTeamB,
+          closearenaColor
+        ); // Add it to domTeam for whos win checking
+      }
+      if (pwned == -2) {
+        sockets.broadcast(
+          "The " + c.D_NAMES[o.DOMLOC-1] + " Dominator is now controlled by GREEN",
+          closearenaColor
+        );
+        domTeamG++;
+        console.log(
+          "A Dominator controlled by green! Greens Dominators count: " +
+            domTeamG,
+          closearenaColor
+        );
+      }
+      if (pwned == -3) {
+        sockets.broadcast(
+          "The " + c.D_NAMES[o.DOMLOC-1] + " Dominator is now controlled by RED",
+          closearenaColor
+        );
+        domTeamR++;
+        console.log(
+          "A Dominator controlled by red! Reds Dominators count: " +
+            domTeamR,
+          closearenaColor
+        );
+      }
+      if (pwned == -4) {
+        sockets.broadcast(
+          "The " + c.D_NAMES[o.DOMLOC-1] + " Dominator is now controlled by PURPLE",
+          closearenaColor
+        );
+        domTeamP++;
+        console.log(
+          "A Dominator controlled by purple! Purples Dominators count: " +
+            domTeamP,
+          closearenaColor
+        );
+      }
+    }
+    n.color = [3, 10, 11, 12, 15][-pwned];
+    n.ondeath = () => {
+      // if I have controlled, when I die make me be yellow (contested)
+      let i = new Entity(loc);
+      i.define(choose);
+      i.SIZE = 100;
+      if (pwned >= -4 || pwned <= -1) {
+        if (pwned == -1) {
+          domTeamB--;
+          console.log(
+            "a Dominator (Blues Dominator) being contested! Blue Dominators counts: " +
+              domTeamB,
+            closearenaColor
+          );
+        } else if (pwned == -2) {
+          domTeamG--;
+          console.log(
+            "a Dominator (Greens Dominator) being contested! Green Dominators counts: " +
+              domTeamG,
+            closearenaColor
+          );
+        } else if (pwned == -3) {
+          domTeamR--;
+          console.log(
+            "a Dominator (Reds Dominator) being contested! Red Dominators counts: " +
+              domTeamR,
+            closearenaColor
+          );
+        } else if (pwned == -4) {
+          domTeamP--;
+          console.log(
+            "a Dominator (Purples Dominator) being contested! Purple Dominators counts: " +
+              domTeamP,
+            closearenaColor
+          );
+        }
+      }
+      i.team = 0 || -100;
+      sockets.broadcast(
+        "The " + c.D_NAMES[o.DOMLOC-1] + " Dominator is being contested!",
+        closearenaColor
+      );
+      i.color = 3;
+      i.ondeath = o.ondeath; // when I die, repeat the o.ondeath again
+      o = i;
+    };
+  };
+}
+        for (var i = 1; i<10; i++) {
+                room['dom' + i].forEach((loc) => { k(loc); }); 
+         }
+ 
+ 
+setInterval(function() {
+if (ArenaClosed !== true) {
+  let colorWon = null
+  if (domTeamB == c.NUMBER_OF_DOMS){colorWon = "Blue"}
+  if (domTeamR == c.NUMBER_OF_DOMS){colorWon = "Red"}
+  if (domTeamG == c.NUMBER_OF_DOMS){colorWon = "Green"}
+  if (domTeamP == c.NUMBER_OF_DOMS){colorWon = "Purple"}
+ 
+    if (colorWon !== null && closed_once == false) {
+    sockets.broadcast( colorWon + " HAS WON THE GAME!", closearenaColor);
+    var ArenaClosed = true;
+    }}
+  if(ArenaClosed == true){
+    closed_once = true
+    setTimeout(function() {
+      let loops = 0;
+      sockets.broadcast(
+        "Arena Closed: No players can join",
+        closearenaColor
+      );
+      setTimeout(function(){}, 2000
+                )
+ 
+      console.log("Arena Closed! Spawing Arena Closers...");
+      setInterval(function() {
+        if (loops < 16) {
+          let o = new Entity(room.randomType("norm"));
+          o.define(Class.arenacloser2, Class.arenacloser);//put whatever you want to spawn at the end here
+          o.team = -100;
+          console.log("Spawned Arena Closers!");
+          loops++;
+        }
+      }, 3000);
+      setTimeout(function() {
+        sockets.broadcast("Closing...!", closearenaColor);
+        console.log("Closing...");
+        setTimeout(function() {
+          process.exit();
+        }, 2000);
+      }, 40000);
+    }, 5000);
+  }
+}, 200);
       
         // Return the spawning function
         let bots = [];

@@ -19,13 +19,13 @@
   "ROOM_SETUP": [
     ["bas1", "bap1", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "acsp", "norm"],
     ["bap1", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm" ,"norm", "norm", "norm"],
+    ["norm", "norm", "dom2", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "dom1", "norm", "norm"],
     ["norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm"],
-    ["norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm"],
-    ["norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm"],
-    ["norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "nest", "norm"],
-    ["acsp", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "nest", "acsp"],
-    ["norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "nest", "norm"],
-    ["norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm"],
+    ["norm", "norm", "norm", "norm", "nest", "nest", "nest", "nest", "nest", "norm", "norm", "norm", "norm"],
+    ["norm", "norm", "norm", "norm", "nest", "norm", "norm", "norm", "nest", "norm", "norm", "nest", "norm"],
+    ["acsp", "norm", "norm", "norm", "nest", "norm", "dom1", "norm", "nest", "norm", "norm", "nest", "acsp"],
+    ["norm", "norm", "norm", "norm", "nest", "norm", "norm", "norm", "nest", "norm", "norm", "nest", "norm"],
+    ["norm", "norm", "norm", "norm", "nest", "nest", "nest", "nest", "nest", "norm", "norm", "norm", "norm"],
     ["norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm"],
     ["norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm"],
     ["norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "bap3"],
@@ -68,5 +68,8 @@
   "FOOD_AMOUNT": 0.4, 
   "SKILL_BOOST": 5,
   "BOTS": 5,
-  "GLASS_HEALTH_FACTOR": 2
+  "GLASS_HEALTH_FACTOR": 2,
+"NUMBER_OF_DOMS": 5,
+ "D_NAMES": ["Center","North East","North West", "South West","South East"]
+
 }
