@@ -5152,9 +5152,8 @@ if (ArenaClosed !== true) {
         "Arena Closed: No players can join",
         closearenaColor
       );
-      setTimeout(function(){}, 2000
-                )
- 
+      setTimeout(function(){}, 2000 )
+ setTimeout(() => closemode(), 1e3);
       console.log("Arena Closed! Spawing Arena Closers...");
       setInterval(function() {
         if (loops < 16) {
