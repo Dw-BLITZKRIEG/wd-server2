@@ -67,7 +67,7 @@
   "MIN_SPEED": 0.001,
   "FOOD_AMOUNT": 0.4, 
   "SKILL_BOOST": 5,
-  "BOTS": 5,
+  "BOTS": 10,
   "GLASS_HEALTH_FACTOR": 2,
 "NUMBER_OF_DOMS": 5,
  "D_NAMES": ["Center","North East","North West", "South West","South East"]
