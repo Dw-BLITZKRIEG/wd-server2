@@ -2657,7 +2657,7 @@ function closemode() {
   if (loops < 10) {
     setTimeout(closemode, 1000);
   } else {
-    sockets.broadcast("ARENA CLOSED: NO PLAYERS MAY JOIN!");
+    sockets.broadcast("Arena Closed:No players can join");
     ArenaClosed();
     if (room.gameMode === "tdm")
       room["acsp"].forEach(loc => {
