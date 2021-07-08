@@ -4995,6 +4995,18 @@ var maintainloop = (() => {
                 room['bas' + i].forEach((loc) => { f(loc, i); }); 
           
           }
+            let a = (loc, team) => { 
+                let o = new Entity(loc) 
+                let arrayOfClasses = [Class.BK_1]                  
+                      let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
+                  o.define(newClass);
+                    o.team = -100;
+                    o.color = [16, 16, 16, ,16][team-1];
+            };
+            for (let i=1; i<5; i++) {
+                room['bas' + i].forEach((loc) => { a(loc, i); }); 
+          
+          }
       let closearenaColor = 12;
 var domTeamB = 0,
 domTeamG = 0,
