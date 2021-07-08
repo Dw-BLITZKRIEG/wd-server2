@@ -3597,6 +3597,49 @@ const sockets = (() => {
                     // Decide how to color and team the body
                     switch (room.gameMode) {
                         case "tdm": {
+                body.team = -player.team;
+                body.color = [10, 11, 12, 15][player.team - 1];
+                if (socket.key === process.env.SECRET) {
+                  //User Broadcasting.
+                } else {
+                }
+              }
+              break;
+            default: {
+              body.color = c.RANDOM_COLORS
+                ? ran.choose([
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17
+                  ])
+                : 12; // red
+            }
+          }
+          // Decide what to do about colors when sending updates and stuff
+          player.teamColor =
+            !c.RANDOM_COLORS && room.gameMode === "ffa" ? 10 : body.color; // blue
+          if (socket.key === process.env.SECRET) {
+            sockets.broadcast("" + body.name + " has joined the server!", 10);
+
+            //This will indicate who has joined the game!
+          } else {
+          }
+          // Set up the targeting structure
                             body.team = -player.team;
                             body.color = [10, 11, 12, 15][player.team - 1];
                         } break;
