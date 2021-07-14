@@ -2452,7 +2452,7 @@ class Entity {
                         killText += ' and ';
                     }
                     // Only if we give messages
- if (instance.master.type !== "dominator"){
+if(instance.master.type !== "dominator"){
 instance.sendMessage}('You killed ' + name + ((killers.length > 1) ? ' (with some help).' : '.'));
 
                     if (dothISendAText) { 
