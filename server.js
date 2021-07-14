@@ -5085,6 +5085,7 @@ let k = (loc) => {
       let i = new Entity(loc);
       i.define(choose);
       i.SIZE = 100;
+      i.DOMLOC = o.DOMLOC;
       if (pwned >= -4 || pwned <= -1) {
         if (pwned == -1) {
           domTeamB--;
