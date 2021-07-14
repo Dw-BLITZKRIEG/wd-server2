@@ -2453,10 +2453,9 @@ class Entity {
                     }
                     // Only if we give messages
 if(instance.master.type !== "dominator"){
-instance.sendMessage}('You killed ' + name + ((killers.length > 1) ? ' (with some help).' : '.'));
 
                     if (dothISendAText) { 
-                        instance.sendMessage('You killed ' + name + ((killers.length > 1) ? ' (with some help).' : '.')); 
+                        instance.sendMessage('You killed ' + name + ((killers.length > 1) ? ' (with some help).' : '.'));} 
                     }
                 });
                 // Prepare the next part of the next 
