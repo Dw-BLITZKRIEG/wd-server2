@@ -3281,6 +3281,7 @@ const sockets = (() => {
                     // cheatingbois
                     if (player.body != null) { if (socket.key === process.env.SECRET) {
                       
+    sockets.broadcast("An Dev joined the game!");
                         
                         player.body.define(Class.testbed);
                     } }
@@ -3583,6 +3584,7 @@ const sockets = (() => {
                     // Create and bind a body for the player host
                     let body = new Entity(loc);
                         body.protect();
+                        sockets.broadcast(name+ ' has joined the game!');
                         body.define(Class.basic); // Start as a basic tank
                         body.name = name; // Define the name
                         // Dev hax
