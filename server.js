@@ -1593,6 +1593,7 @@ class Entity {
         this.killCount = { solo: 0, assists: 0, bosses: 0, killers: [], };
         this.creationTime = (new Date()).getTime();
         // Inheritance
+this.GoesThroughWalls = false
         this.master = master;
         this.source = this;
         this.poisoned = false;
@@ -1801,7 +1802,9 @@ class Entity {
         }
         if (set.CAN_GO_OUTSIDE_ROOM != null) { 
             this.settings.canGoOutsideRoom = set.CAN_GO_OUTSIDE_ROOM; 
-        }
+        }    	if (set.GOES_THROUGH_WALLS != null) {
+     	this.GoesThroughWalls = set.GOES_THROUGH_WALLS;
+    	}
         if (set.HITS_OWN_TYPE != null) { 
             this.settings.hitsOwnType = set.HITS_OWN_TYPE; 
         }
@@ -4691,7 +4694,7 @@ var gameloop = (() => {
             }
             if (!instance.activation.check() && !other.activation.check()) { util.warn('Tried to collide with an inactive instance.'); return 0; }
             // Handle walls
-            if (instance.type === 'wall' || other.type === 'wall') {
+            if (instance.type === 'wall' || other.type === 'wall') {     if(instance.GoesThroughWalls === true || other.GoesThroughWalls === true) return;
                 let a = (instance.type === 'bullet' || other.type === 'bullet') ? 
                     1 + 10 / (Math.max(instance.velocity.length, other.velocity.length) + 10) : 
                     1;
