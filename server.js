@@ -5089,7 +5089,7 @@ let k = (loc) => {
       // if I have controlled, when I die make me be yellow (contested)
       let i = new Entity(loc);
       i.define(choose);
-      i.SIZE = 100;
+      i.SIZE = 64;
       i.DOMLOC = o.DOMLOC;
       if (pwned >= -4 || pwned <= -1) {
         if (pwned == -1) {
