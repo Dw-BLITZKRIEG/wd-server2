@@ -2185,6 +2185,10 @@ this.GoesThroughWalls = false
             this.SIZE += 1;
             this.maxSpeed = this.topSpeed;
             break;
+        case "grow2":
+            this.SIZE += 30;
+            this.maxSpeed = this.topSpeed;
+            break;
         case 'motor':
             this.maxSpeed = 0;            
             if (this.topSpeed) {
@@ -5014,7 +5018,9 @@ let k = (loc) => {
     Class.dominator01,
     Class.dominator02,
     Class.dominator03,
-    Class.dominator04
+    Class.dominator04,
+    Class.dominator04,
+    Class.dominator05              
   ]); // choose the dominator
   o.define(choose);
   o.team = -100; // Makes it spawn yellow
