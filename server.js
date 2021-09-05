@@ -2186,7 +2186,7 @@ this.GoesThroughWalls = false
             this.maxSpeed = this.topSpeed;
             break;
         case "grow2":
-            this.SIZE += 30;
+            this.SIZE += 3;
             this.maxSpeed = this.topSpeed;
             break;
         case 'motor':
