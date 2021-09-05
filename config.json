@@ -31,7 +31,7 @@
     ["norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "bap3"],
     ["norm", "acsp", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "bap3", "bas3"]
   ],
-  "X_GRID": 13,
+  "X_GRID": 13, 
   "Y_GRID": 13,
   "DAMAGE_CONSTANT": 0.6,
   "KNOCKBACK_CONSTANT": 1,
