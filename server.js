@@ -3141,7 +3141,8 @@ const sockets = (() => {
                     if (players.indexOf(socket.player) != -1) { util.remove(players, players.indexOf(socket.player));  }
                     // Free the old view
                     if (views.indexOf(socket.view) != -1) { util.remove(views, views.indexOf(socket.view)); socket.makeView(); }
-                    socket.player = socket.spawn(name);     
+                    socket.player = socket.spawn(name);   
+                  socket.player.name = name;
                     // Give it the room state
                     if (!needsRoom) { 
                         socket.talk(
