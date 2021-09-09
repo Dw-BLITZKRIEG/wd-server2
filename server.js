@@ -3141,8 +3141,7 @@ const sockets = (() => {
                     if (players.indexOf(socket.player) != -1) { util.remove(players, players.indexOf(socket.player));  }
                     // Free the old view
                     if (views.indexOf(socket.view) != -1) { util.remove(views, views.indexOf(socket.view)); socket.makeView(); }
-                    socket.player = socket.spawn(name);   
-                  socket.player.name = name;
+                    socket.player = socket.spawn(name);     
                     // Give it the room state
                     if (!needsRoom) { 
                         socket.talk(
@@ -3159,57 +3158,6 @@ const sockets = (() => {
                     // Log it    
                     util.log('[INFO] ' + (m[0]) + (needsRoom ? ' joined' : ' rejoined') + ' the game! Players: ' + players.length);   
                 } break;
-                       case "h":
-            if (!socket.status.deceased) {
-              // Chat system!!.
-
-              let message = m[0];
-              let maxLen = 100;
-              let args = message.split(" ");
-              if (message.startsWith("/")) {
-                //help command
-                if (message.startsWith("/help")) {
-                  player.body.sendMessage(
-                  player.body.sendMessage("/km ~ Destroys your tank");
-                  return 1;
-                }
-                // suicide command
-                if (message.startsWith("/km")) {
-                  {
-                    player.body.destroy();
-                    return 1;
-                  }
-                } else
-                  return player.body.sendMessage(
-                    "Invalid command. Run /help for a list of commands."
-                  );
-              }
-              if (util.time() - socket.status.lastChatTime >= 2200) {
-                // Verify it
-                if (typeof message != "string") {
-                  player.body.sendMessage("Invalid chat message.");
-                  return 1;
-                }
- 
-                if (encodeURI(message).split(/%..|./).length > maxLen) {
-                  player.body.sendMessage(
-                    "Your message is too long. (<100 Characters)"
-                  );
-                  return 1;
-                }
-  
-                let playerName = socket.player.name
-                  ? socket.player.name
-                  : "Unnamed";
-                let chatMessage = playerName + " says: " + message;
-                sockets.broadcast(chatMessage);
-                util.log("[CHAT] " + chatMessage);
-                // Basic chat spam control.
-                socket.status.lastChatTime = util.time();
-              } else
-                player.body.sendMessage("You're sending messages too quickly!");
-            }
-            break;
                 case 'S': { // clock syncing
                     if (m.length !== 1) { socket.kick('Ill-sized sync packet.'); return 1; }
                     // Get data
@@ -4362,7 +4310,6 @@ const sockets = (() => {
                     needsFullMap: true,
                     needsNewBroadcast: true, 
                     lastHeartbeat: util.time(),
-                  lastChatTime: util.time()
                 };  
                 // Set up loops
                 socket.loops = (() => {
