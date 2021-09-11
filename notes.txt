@@ -41,11 +41,11 @@ ARRAS:IO
 
 19= black-blackhole
 
-20= undercover cop siren
+20= dark dark blue
 
-21= you ffa  > turret/gun color
+21= lime
 
-22= 21
+22= lime
 
 23= other´s ffa > turret/gun color 
 
@@ -61,9 +61,9 @@ ARRAS:IO
 
 29= 25
 
-30= purple
+30= police siren
 
-31= 
+31= police siren
 
 32= 12
 
