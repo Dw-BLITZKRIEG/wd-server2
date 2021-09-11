@@ -7,7 +7,7 @@ ARRAS:IO
 
 2= defender orange
 
-3= blass orange/
+3= blass orange/yellow
 
 4= developer purple
 
@@ -74,6 +74,18 @@ ARRAS:IO
 35= arena closer color
 
 36= rainbow
+
+37= red
+
+38= red
+
+39= red
+
+40= red
+
+41= red
+
+41- Infinte= red
 
 
 
