@@ -2410,22 +2410,7 @@ this.GoesThroughWalls = false
         this.damageRecieved = 0;
 
         // Check for death
-      if (this.isDead()) {
-      if (this.label == "Elite splitter") {
-        sockets.broadcast("An Elite splitter has been deafeated..."
-        );
-        this.ondeath = () => {
-          setTimeout(() => {
-            sockets.broadcast(
-              "the core may be destroyed but not the elite destroyers!"
-            );
-            let type = Class.elite_destroyer;
-            let o = new Entity(this);
-            o.define(type);
-            o.team = -100;
-          }, 2500);
-        };
-      }
+     
          // Check for death
       if (this.isDead()) {
       if (this.label == "Elite splitter") {
@@ -2437,6 +2422,7 @@ this.GoesThroughWalls = false
               "the core may be destroyed but not the elite destroyers!"
             );
             let type = Class.elite_destroyer;
+            let type2= Class.elite_Destroyer_turret;
             let o = new Entity(this);
             o.define(type);
             o.team = -100;
@@ -2444,23 +2430,6 @@ this.GoesThroughWalls = false
         };
       }
       }
-       if (this.isDead()) {
-      if (this.label == "Elite splitter") {
-        sockets.broadcast("An Elite splitter has been deafeated..."
-        );
-        this.ondeath = () => {
-          setTimeout(() => {
-            sockets.broadcast(
-              "the core may be destroyed but not the elite destroyers!"
-            );
-            let type = Class.elite_destroyer;
-            let o = new Entity(this);
-            o.define(type);
-            o.team = -100;
-          }, 2500);
-        };
-      }
-       }
     
       
             // Initalize message arrays
