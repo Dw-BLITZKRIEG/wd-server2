@@ -4965,26 +4965,29 @@ var maintainloop = (() => {
                 timer = 0;
                 let choice = [];
                 switch (wave) {
-          case 6:
+          case 0:
             choice = [[Class.elite_destroyer], 1, "castle", "nest"];
 
             break;
           case 1:
             choice = [[Class.palisade], 1, "castle", "norm"];
-                    
+         break;            
           case 2:
-            choice = [[Class.Elite_destroyer, Class.Elite_gunner, Class.Elite_sprayer], 3, "a", "nest"];
-        
+            choice = [[Class.elite_destroyer, Class.elite_gunner, Class.elite_sprayer], 3, "a", "nest"];
+        break; 
           case 3:
-            choice = [[Class.Elite_KILLER], 1, "a", "nest"];
-        
+            choice = [[Class.elite_KILLER], 1, "a", "nest"];
+        break; 
           case 4:
-            choice = [[Class.Elite_battelship], 1, "a", "nest"];
-        
+            choice = [[Class.elite_battelship], 1, "a", "nest"];
+        break; 
           case 5:
-            choice = [[Class.Elite_destroyer, Class.Elite_gunner, Class.Elite_sprayer, Class.Elite_splitter], 1, "a", "nest"];
-
-          case 0:
+            choice = [[Class.elite_destroyer, Class.elite_gunner, Class.elite_sprayer, Class.elite_splitter], 1, "a", "nest"];
+       break; 
+          case 6:
+            choice = [[Class.elite_destroyer, Class.elite_gunner, Class.elite_sprayer, Class.elite_splitter], 1, "a", "nest"];
+       break; 
+          case 7:
             setTimeout(() => closemode(), 1e3);
             sockets.broadcast("Closing Arena Due socket timeout!");
             break;     
