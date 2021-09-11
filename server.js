@@ -4960,21 +4960,33 @@ var maintainloop = (() => {
             };
         })();
         return census => {
-            if (timer > 3500 && ran.dice(1500 - timer)) {
+            if (timer > 150 && ran.dice(155 - timer)) {
                 util.log('[SPAWN] Preparing to spawn...');
                 timer = 0;
                 let choice = [];
                 switch (wave) {
-          case 0:
+          case 6:
             choice = [[Class.elite_destroyer], 1, "castle", "nest"];
 
             break;
-          case 2:
-            choice = [[Class.palisade], 1, "castle", "nest"];
-
           case 1:
+            choice = [[Class.palisade], 1, "castle", "norm"];
+                    
+          case 2:
+            choice = [[Class.Elite_destroyer, Class.Elite_gunner, Class.Elite_sprayer], 3, "a", "nest"];
+        
+          case 3:
+            choice = [[Class.Elite_KILLER], 1, "a", "nest"];
+        
+          case 4:
+            choice = [[Class.Elite_battelship], 1, "a", "nest"];
+        
+          case 5:
+            choice = [[Class.Elite_destroyer, Class.Elite_gunner, Class.Elite_sprayer, Class.Elite_splitter], 1, "a", "nest"];
+
+          case 0:
             setTimeout(() => closemode(), 1e3);
-            sockets.broadcast("BLUE HAS WON THE GAME!!!");
+            sockets.broadcast("Closing Arena Due socket timeout!");
             break;     
                 }
                 boss.prepareToSpawn(...choice);
