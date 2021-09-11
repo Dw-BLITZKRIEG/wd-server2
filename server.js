@@ -4982,10 +4982,10 @@ var maintainloop = (() => {
             choice = [[Class.elite_battelship], 1, "a", "nest"];
         break; 
           case 5:
-            choice = [[Class.elite_destroyer, Class.elite_gunner, Class.elite_sprayer, Class.elite_splitter], 1, "a", "nest"];
+            choice = [[Class.elite_splitter], 1, "a", "nest"];
        break; 
           case 6:
-            choice = [[Class.elite_destroyer, Class.elite_gunner, Class.elite_sprayer, Class.elite_splitter], 1, "a", "nest"];
+            choice = [[Class.pentagon], 1, "a", "nest"];
        break; 
           case 7:
             setTimeout(() => closemode(), 1e3);
