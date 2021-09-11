@@ -7,7 +7,7 @@ ARRAS:IO
 
 2= defender orange
 
-3= blass orange
+3= blass orange/
 
 4= developer purple
 
@@ -15,7 +15,7 @@ ARRAS:IO
  
 6= egg color
 
-7= brown
+7= blass brown
 
 8= enternal white
 
@@ -31,7 +31,7 @@ ARRAS:IO
 
 14= pentagon´s color´s
 
-15= purple team
+15= pink 
 
 16= cannon/turret color
 
@@ -45,13 +45,13 @@ ARRAS:IO
 
 21= lime
 
-22= lime
+22= wierd yellow i guess
 
-23= other´s ffa > turret/gun color 
+23= pink/purple
 
-24= 23
+24= Cyan
 
-25= light pink
+25= red
 
 26= 25
 
