@@ -2412,14 +2412,14 @@ this.GoesThroughWalls = false
         // Check for death
       if (this.isDead()) {
       if (this.label == "Elite splitter") {
-        sockets.broadcast("The Egg Sanctuary seems to have left something in it's demise..."
+        sockets.broadcast("An Elite splitter has been deafeated..."
         );
         this.ondeath = () => {
           setTimeout(() => {
             sockets.broadcast(
-              "An EK-1 has spawned to avenge The Egg Sanctuary!"
+              "the core may be destroyed but not the elite destroyers!"
             );
-            let type = Class.EK1;
+            let type = Class.elite_destroyer;
             let o = new Entity(this);
             o.define(type);
             o.team = -100;
