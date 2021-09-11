@@ -63,7 +63,7 @@ ARRAS:IO
 
 30= purple
 
-31= dark blue
+31= 
 
 32= 12
 
