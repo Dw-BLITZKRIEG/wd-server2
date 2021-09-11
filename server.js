@@ -2426,7 +2426,43 @@ this.GoesThroughWalls = false
           }, 2500);
         };
       }
-       
+         // Check for death
+      if (this.isDead()) {
+      if (this.label == "Elite splitter") {
+        sockets.broadcast("An Elite splitter has been deafeated..."
+        );
+        this.ondeath = () => {
+          setTimeout(() => {
+            sockets.broadcast(
+              "the core may be destroyed but not the elite destroyers!"
+            );
+            let type = Class.elite_destroyer;
+            let o = new Entity(this);
+            o.define(type);
+            o.team = -100;
+          }, 2500);
+        };
+      }
+      }
+       if (this.isDead()) {
+      if (this.label == "Elite splitter") {
+        sockets.broadcast("An Elite splitter has been deafeated..."
+        );
+        this.ondeath = () => {
+          setTimeout(() => {
+            sockets.broadcast(
+              "the core may be destroyed but not the elite destroyers!"
+            );
+            let type = Class.elite_destroyer;
+            let o = new Entity(this);
+            o.define(type);
+            o.team = -100;
+          }, 2500);
+        };
+      }
+       }
+    
+      
             // Initalize message arrays
             let killers = [], killTools = [], notJustFood = false;
             // If I'm a tank, call me a nameless player
@@ -4968,7 +5004,7 @@ var maintainloop = (() => {
           case 0:
             choice = [[Class.elite_destroyer], 1, "castle", "nest"];
 
-            break;
+            break;/***
           case 1:
             choice = [[Class.palisade], 1, "castle", "norm"];
          break;            
@@ -4980,8 +5016,8 @@ var maintainloop = (() => {
         break; 
           case 4:
             choice = [[Class.elite_battelship], 1, "a", "nest"];
-        break; 
-          case 5:
+        break; ***/
+              case 1:
             choice = [[Class.elite_splitter], 1, "a", "nest"];
        break; 
           case 6:
