@@ -2410,7 +2410,23 @@ this.GoesThroughWalls = false
         this.damageRecieved = 0;
 
         // Check for death
-        if (this.isDead()) {
+      if (this.isDead()) {
+      if (this.label == "Elite splitter") {
+        sockets.broadcast("The Egg Sanctuary seems to have left something in it's demise..."
+        );
+        this.ondeath = () => {
+          setTimeout(() => {
+            sockets.broadcast(
+              "An EK-1 has spawned to avenge The Egg Sanctuary!"
+            );
+            let type = Class.EK1;
+            let o = new Entity(this);
+            o.define(type);
+            o.team = -100;
+          }, 2500);
+        };
+      }
+       
             // Initalize message arrays
             let killers = [], killTools = [], notJustFood = false;
             // If I'm a tank, call me a nameless player
