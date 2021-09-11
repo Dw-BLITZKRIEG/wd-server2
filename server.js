@@ -4996,7 +4996,7 @@ var maintainloop = (() => {
             };
         })();
         return census => {
-            if (timer > 150 && ran.dice(155 - timer)) {
+            if (timer > 3500 && ran.dice(1550 - timer)) {
                 util.log('[SPAWN] Preparing to spawn...');
                 timer = 0;
                 let choice = [];
@@ -5004,7 +5004,7 @@ var maintainloop = (() => {
           case 0:
             choice = [[Class.elite_destroyer], 1, "castle", "nest"];
 
-            break;/***
+            break;
           case 1:
             choice = [[Class.palisade], 1, "castle", "norm"];
          break;            
@@ -5016,7 +5016,7 @@ var maintainloop = (() => {
         break; 
           case 4:
             choice = [[Class.elite_battelship], 1, "a", "nest"];
-        break; ***/
+        break; 
               case 1:
             choice = [[Class.elite_splitter], 1, "a", "nest"];
        break; 
