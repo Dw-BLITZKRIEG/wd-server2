@@ -2370,8 +2370,8 @@ this.GoesThroughWalls = false
             if (
                 (this.team !== -1 && room.isIn('bas1', loc)) ||
                 (this.team !== -2 && room.isIn('bas2', loc)) ||
-                (this.team !== -3 && room.isIn('bas3', loc)) ||
-                (this.team !== -4 && room.isIn('bas4', loc))
+                (this.team !== -3 && room.isIn('bas1', loc)) ||
+                (this.team !== -4 && room.isIn('bas2', loc))
             ) { this.kill(); }
         }
     }
@@ -3659,7 +3659,7 @@ const sockets = (() => {
                     switch (room.gameMode) {
                         case "tdm": {
                             body.team = -player.team;
-                            body.color = [10, 11, 12, 15][player.team - 1];
+                            body.color = [10, 10, 12, 12][player.team - 1];
                         } break;
                         default: {
                             body.color = (c.RANDOM_COLORS) ? 
