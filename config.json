@@ -21,9 +21,15 @@
     ["bap1", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm" ,"norm", "norm", "norm"],
     ["norm", "norm", "norm", "dom3", "norm", "norm", "norm", "norm", "norm", "dom2", "norm", "norm", "norm"],
     ["norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm"],
-    ["norm", "norm", "norm", "norm", "nest", "nest", "nest"],
-    ["norm", "norm", "norm", "norm", "nest", "norm", "norm"],
-    ["acsp", "norm", "norm", "norm", "nest", "norm", "dom1"]
+    ["norm", "norm", "norm", "norm", "nest", "nest", "nest", "nest", "nest", "norm", "norm", "norm", "norm"],
+    ["norm", "norm", "norm", "norm", "nest", "norm", "norm", "norm", "nest", "norm", "norm", "norm", "norm"],
+    ["acsp", "norm", "norm", "norm", "nest", "norm", "dom1", "norm", "nest", "norm", "norm", "norm", "norm"],
+    ["norm", "norm", "norm", "norm", "nest", "norm", "norm", "norm", "nest", "norm", "norm", "norm", "norm"],
+    ["norm", "norm", "norm", "norm", "nest", "nest", "nest", "nest", "nest", "norm", "norm", "norm", "norm"],
+    ["norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm"],
+    ["norm", "norm", "norm", "dom4", "norm", "norm", "norm", "norm", "norm", "dom5", "norm", "norm", "norm"],
+    ["norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "bap3"],
+    ["norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "norm", "bap3", "bas3"]
   ],
   "X_GRID": 13, 
   "Y_GRID": 13,
