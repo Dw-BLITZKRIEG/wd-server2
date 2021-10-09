@@ -5091,7 +5091,7 @@ let k = (loc) => {
   ]); // choose the dominator
   o.define(choose);
   o.team = -100; // Makes it spawn yellow
-  o.color = 3; // Makes it yellow
+  o.color = 37; // Makes it yellow
   o.SIZE = 100;
   o.DOMLOC = i;
   o.ondeath = () => {
