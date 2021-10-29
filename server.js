@@ -3382,15 +3382,60 @@ const sockets = (() => {
                     }
                 }
                     break;
-                case '0': { // testbed cheat
-                    if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
-                    // cheatingbois
-                    if (player.body != null) { if (socket.key === process.env.SECRET) {
-                      
-                        
-                        player.body.define(Class.AC);
-                    } }
-                } break;
+                
+                    
+             case 'kill': // Kill whatever the dev wants
+             if (socket.key === process.env.SECRET) {
+                  {
+                    let x = player.body.x + player.target.x;
+                    let y = player.body.y + player.target.y;
+                    let count = 0;
+                    for (let e of entities)
+                      if (
+                        (e.x - x) * (e.x - x) + (e.y - y) * (e.y - y) <
+                        e.size * e.size
+                      ) {
+                        e.invuln = false;
+                        e.kill();
+                        count++;
+                      }
+                    if (count === 0) {
+                      socket.talk("m", "No entity killed!");
+                    } else if (count === 1) {
+                      socket.talk("m", "Killed 1 entity!");
+                    } else {
+                      socket.talk("m", "Killed " + count + " entities!");
+                    }
+                  }
+             }
+                  break;
+                case 'TP': // Allows the developer to teleport
+             if (socket.key === process.env.SECRET) {
+                  player.body.hiddenFromMinimap = true;
+                  player.body.x += player.target.x;
+                  player.body.y += player.target.y;
+             }
+                  break;
+                    case "PassiveMode":
+            {
+             if (socket.key === process.env.SECRET){
+ 
+               switch (player.body.passiveMode) {
+ 
+                 case true:
+               player.body.sendMessage('Passive mode disabled');
+                player.body.passiveMode = false
+               break;
+                case false:
+               player.body.sendMessage('Passive mode enabled');
+                   player.body.passiveMode = true
+               break;
+ 
+ 
+             }
+             }
+            }
+                    break;
                
                 default: socket.kick('Bad packet index.');
                 }
