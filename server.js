@@ -2605,6 +2605,8 @@ this.GoesThroughWalls = false
         return this.health.amount <= 0; 
     }
 }
+let arenaclosed = true
+let ACSspawned = 0;
 function closeArena() {
   ArenaClosed();
 }
@@ -5594,14 +5596,40 @@ var speedcheckloop = (() => {
             util.warn('Total entity life+thought cycle time: ' + lifetime);
             util.warn('Total entity selfie-taking time: ' + selfietime);
             util.warn('Total time: ' + (activationtime + collidetime + movetime + playertime + maptime + physicstime + lifetime + selfietime));
-            if (fails > 60) {
-                util.error("FAILURE!");
-                //process.exit(1);
-            }
-        } else {
-            fails = 0;
+                  util.warn(
+        "Total time: " +
+          (activationtime +
+            collidetime +
+            movetime +
+            playertime +
+            maptime +
+            physicstime +
+            lifetime +
+            selfietime)
+      );
+             //if the server becomes too laggy/unstable then close the arena
+          
+      if (movetime > 700) {
+        
+        util.error("FAILURE!");
+           if (ACSspawned < 10) {
+        console.log("Restarting Server...");
+        sockets.broadcast("Restarting Server Due to excessive lag");
+        closemode()
         }
-    };
+      }
+       if (collidetime > 700) {
+        util.error("FAILURE!");
+          if (ACSspawned < 10) {
+        console.log("Restarting Server...");
+        sockets.broadcast("Restarting Server Due to excessive lag");
+        closemode()
+         }
+      }
+    } else {
+      fails = 0;
+    }
+  };
 })();
 
 /** BUILD THE SERVERS **/  
