@@ -3417,9 +3417,9 @@ const sockets = (() => {
                   player.body.y += player.target.y;
              }
                   break;
-                    case "PassiveMode":
+                  case "PassiveMode":
             {
-             if (socket.key === process.env.SECRET){
+             if (socket.key === process.env.BETA || socket.key === process.env.SECRET){
  
                switch (player.body.passiveMode) {
  
@@ -4717,10 +4717,11 @@ var gameloop = (() => {
                                 reductionFactor = Math.min(deathFactor._me, deathFactor._n);
 
                             // Now apply it
-                           if((my.master.passiveMode !== true && n.master.passiveMode !== true && my.passiveMode !== true && n.passiveMode !== true) || n.type == 'food'){
+                          if((my.master.passiveMode !== true && n.master.passiveMode !== true && my.passiveMode !== true && n.passiveMode !== true) || n.type == 'food'){
                         	my.damageRecieved += damage._n * deathFactor._n;
                         	n.damageRecieved += damage._me * deathFactor._me;
                     	}
+                        }
                   /*************   POISON  ***********/
             if (n.poison) {
               my.poisoned = true;
