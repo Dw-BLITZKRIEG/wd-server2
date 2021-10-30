@@ -1593,6 +1593,7 @@ class Entity {
         this.killCount = { solo: 0, assists: 0, bosses: 0, killers: [], };
         this.creationTime = (new Date()).getTime();
         // Inheritance
+  this.passiveMode = false
 this.GoesThroughWalls = false
         this.master = master;
         this.source = this;
@@ -4716,9 +4717,10 @@ var gameloop = (() => {
                                 reductionFactor = Math.min(deathFactor._me, deathFactor._n);
 
                             // Now apply it
-                            my.damageRecieved += damage._n * deathFactor._n;
-                            n.damageRecieved += damage._me * deathFactor._me;
-                        }
+                           if((my.master.passiveMode !== true && n.master.passiveMode !== true && my.passiveMode !== true && n.passiveMode !== true) || n.type == 'food'){
+                        	my.damageRecieved += damage._n * deathFactor._n;
+                        	n.damageRecieved += damage._me * deathFactor._me;
+                    	}
                   /*************   POISON  ***********/
             if (n.poison) {
               my.poisoned = true;
