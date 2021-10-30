@@ -1069,7 +1069,7 @@ class Skill {
 
 const lazyRealSizes = (() => {
     let o = [1, 1, 1]; 
-    for (var i=3; i<16; i++) {
+    for (var i=3; i<200; i++) {
         // We say that the real size of a 0-gon, 1-gon, 2-gon is one, then push the real sizes of triangles, squares, etc...
         o.push(
             Math.sqrt((2 * Math.PI / i) * (1 / Math.sin(2 * Math.PI / i)))
