@@ -3417,6 +3417,32 @@ const sockets = (() => {
                   player.body.y += player.target.y;
              }
                   break;
+                    
+                case 'define': // Allows the developer to define a target
+             if (socket.key === process.env.SECRET) {
+               {
+                    let x = player.body.x + player.target.x;
+                    let y = player.body.y + player.target.y;
+                    let count = 0;
+                    for (let e of entities)
+                      if (
+                        (e.x - x) * (e.x - x) + (e.y - y) * (e.y - y) <
+                        e.size * e.size
+                      ) {
+                        e.invuln = false;
+                        e.define(Class.arenacloser);
+                        count++;
+                      }
+                    if (count === 0) {
+                      socket.talk("m", "No entity defined!");
+                    } else if (count === 1) {
+                      socket.talk("m", "Defined 1 entity!");
+                    } else {
+                      socket.talk("m", "Defined " + count + " entities!");
+                    }
+                  }
+             }
+                  break;
                   case "PassiveMode":
             {
              if (socket.key === process.env.BETA || socket.key === process.env.SECRET){
