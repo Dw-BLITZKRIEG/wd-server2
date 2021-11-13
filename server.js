@@ -5735,16 +5735,16 @@ var speedcheckloop = (() => {
       );
              //if the server becomes too laggy/unstable then close the arena
           
-      if (movetime > 700) {
+    if (movetime > 800) {
         
-        util.error("FAILURE!");
+        util.error("lag, killing all entitys");
            if (ACSspawned < 10) {
         console.log("Restarting Server...");
-        sockets.broadcast("Restarting Server Due to excessive lag");
-        closemode()
+        sockets.broadcast("Killing All entitys due lag!");
+        killall();
         }
       }
-       if (collidetime > 700) {
+       if (collidetime > 10000) {
         util.error("FAILURE!");
           if (ACSspawned < 10) {
         console.log("Restarting Server...");
@@ -5798,3 +5798,11 @@ setInterval(gameloop, room.cycleSpeed);
 setInterval(maintainloop, 200);
 setInterval(speedcheckloop, 1000);
 setInterval(poisonLoop, room.cycleSpeed * 7);
+
+function killall() {
+  sockets.broadcast("Killing all Entitys...");
+  for (let e of entities) if (e.type !== "food") 
+     e.protection = false,
+    e.invuln = false,
+       e.kill();
+}
