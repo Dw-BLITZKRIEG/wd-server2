@@ -3931,7 +3931,7 @@ const sockets = (() => {
                         if (player.body.id === e.master.id) {
                             data = data.slice(); // So we don't mess up references to the original
                             // Set the proper color if it's on our team
-                            data[12] = player.teamColor;
+                           // data[12] = player.teamColor;
                             // And make it force to our mouse if it ought to
                             if (player.command.autospin) {
                                 data[10] = 1;
